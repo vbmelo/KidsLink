@@ -116,49 +116,45 @@
     <!--formulario-->
     <div class="formulario" style="padding-top: 100px;">
         <div class="container">
-                <h1 class="border-bottom py-2 mb-2" style="text-align: center; padding: 20px;">Formulário para Orçamento de Festa!</h1>
-                <form action="http://192.168.160.36/FormEcho.aspx" name="OrçamentoFesta">
-                    <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
-                        <label for="Nome" class="col-md-2 col-form-label">Nome</label>
-                        <div class="col-md-10">
-                            <input type="text" name="Nome" id="Nome" class="form-control" />
-                            <div class="d-none text-danger col-form-label" id="NomeError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 letras).</div>
+            <h1 class="border-bottom py-2 mb-2" style="text-align: center; padding: 20px;">Formulário para Orçamento de Festa!</h1>             
+            <form action="https://formspree.io/f/moqppwnz" method="POST">
+                <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                    <label for="Nome" class="col-md-2 col-form-label">Nome</label>
+                    <div class="col-md-10">
+                        <input type="text" name="Nome" id="Nome" class="form-control" placeholder="Seu Nome"/>
+                    </div>
+                </div>
+                <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                    <label for="Morada" class="col-md-2 col-form-label">Morada</label>
+                    <div class="col-md-10">
+                        <textarea name="Morada" id="Morada" class="form-control" rows="1" placeholder="Sua Morada"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                    <label class="col-md-2 col-form-label">e-mail</label>
+                    <div class="col-md-10">
+                        <input type="text" name="_replyto" id="Mail" class="form-control" placeholder="Seu e-mail" required />
+                    </div>
+                </div>
+                <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                    <div class="col-md-2">Tipos de Entretenimento</div>
+                    <div class="col-md-10">
+                        <div class="form-check">
+                            <input type="checkbox" name="Entretenimento" class="form-check-input" value="Animadores de Festa" id="Animadores de Festa"><label class="form-check-label" for="r_frente"> Animadores de Festa </label><br />
+                            <input type="checkbox" name="Entretenimento" class="form-check-input" value="Brinquedos Infláveis" id="Brinquedos Infláveis"><label class="form-check-label" for="r_tras"> Brinquedos Infláveis </label><br />
+                            <input type="checkbox" name="Entretenimento" class="form-check-input" value="Dj / Músicos" id="Dj / Músicos"><label class="form-check-label" for="b_lateral"> Dj / Músicos </label><br />
+                            <input type="checkbox" name="Entretenimento" class="form-check-input" value="Maquiadoras" id="Maquiadoras"><label class="form-check-label" for="b_central"> Maquiadoras </label>
                         </div>
                     </div>
-                    <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
-                        <label for="Morada" class="col-md-2 col-form-label">Morada</label>
-                        <div class="col-md-10">
-                            <textarea name="Morada" id="Morada" class="form-control" rows="1"></textarea>
-                            <div class="d-none text-danger col-form-label" id="MoradaError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 palavras).</div>
-                        </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-10 offset-md-2">
+                        <input type="submit" name="submitBtn" value="Enviar" class="btn btn-primary" onclick="return validate()" />
+                        <input type="reset" name="resetBtn" value="Limpar" class="btn btn-secondary" />
                     </div>
-                    <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
-                        <label for="Mail" class="col-md-2 col-form-label">e-mail</label>
-                        <div class="col-md-10">
-                            <input type="text" name="Mail" id="Mail" class="form-control" />
-                            <div class="d-none text-danger col-form-label" id="MailError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 letras e um endereco de e-mail valido!).</div>
-                        </div>
-                    </div>
-                    <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
-                        <div class="col-md-2">Tipos de Entretenimento!</div>
-                        <div class="col-md-10">
-                            <div class="form-check">
-                                <input type="checkbox" name="assento" class="form-check-input" value="100" id="r_frente"><label class="form-check-label" for="r_frente"> Animadores de Festa </label><br />
-                                <input type="checkbox" name="assento" class="form-check-input" value="80" id="r_tras"><label class="form-check-label" for="r_tras"> Brinquedos Infláveis </label><br />
-                                <input type="checkbox" name="assento" class="form-check-input" value="50" id="b_lateral"><label class="form-check-label" for="b_lateral"> Dj / Músicos </label><br />
-                                <input type="checkbox" name="assento" class="form-check-input" value="65" id="b_central"><label class="form-check-label" for="b_central"> Maquiadoras </label>
-                            </div>
-                            <div class="d-none text-danger col-form-label" id="AssentoError"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (O Concerto esta muito cheio! Escolha, pelo menos, dois Assentos!).</div>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-10 offset-md-2">
-                            <input type="Submit" name="submitBtn" value="Enviar" class="btn btn-primary" onclick="return validate()" />
-                            <input type="reset" name="resetBtn" value="Limpar" class="btn btn-secondary" />
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
     </div>
     <!--
     <div class="d-grid gap-2" style="padding-top:70px; padding-left:200px; padding-right:200px; padding-bottom: 70px;">
