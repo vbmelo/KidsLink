@@ -66,8 +66,8 @@ html {
   font-weight: 900;
 }
 .carousel-inner {
-  width: 1280px;
-  height: 600px;
+  width: 80vh;
+  height: 50vh;
 }
 
 #myVideo {
