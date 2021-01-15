@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lato&display=swap" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="style.css" rel="stylesheet" />
 </head>
 
@@ -18,6 +19,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,1);">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html"><img src="Images/logo_KidsLink.png" style="height: 40px; margin:0;">Kids Link</a>
+            <button class="button btn-white" style="border:0px solid white;  border-radius: 25px;" onclick="showLogin();"   data-bs-toggle="modal" data-bs-target="#myModalLogin">Login/Registro</button>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -168,17 +170,39 @@
         <button class="btn btn-primary" type="button" href="comprarFesta.html" style="background-color: #9900FF; font-style: bold;"><a href="comprarFesta.html">Comprar uma Festa!</a></button>
     </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
     <div class="container" style="text-align: center; font-style: bold; padding:50px;">
         <h1 style="font-size: 24px;"><a href="duvidas.html">Dúvidas?</a></h1>
         <p style="text-align: center; font-style: italic; font-size: 18px">Entre em contato pelo e-mail kidslinkpt@gmail.com para saber mais sobre o projeto</p>
     </div>
-    <!--Footer-->>
+    <!--Footer-->
     <div class="container">
     <div class="Footer" style="font-style: bold; text-align: center; padding: 25px;">
        <p> e-mail:kidslinkpt@gmail.com  |   Endereço:Rua do parque da diversão Nº3059   |  Contacto:956145752 </p>
     </div>
     </div>
-
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="/login.js"></script>
 </body>
 </html>
