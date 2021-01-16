@@ -1,136 +1,66 @@
-function showLogin() {
-    console.log("botao clicado");
-}
+var tentativa = 3; // numero de tentativas.
+// depois de carregar no botão de login
+
+//var r_email=["p@gmail.com","g@gmail.com"];
+//var r_pass=[123,321];
+
+   
+localStorage.setItem("mail",JSON.stringify(r_email));
+localStorage.setItem("pass",JSON.stringify(r_pass));
 
 
-var emailArray=[];
-var passwordArray=[];
+var m = JSON.parse(localStorage.getItem("mail"));
+var p = JSON.parse(localStorage.getItem("pass"));
 
-var loginBox = document.getElementById("login");
-var regBox = document.getElementById("register");
-var forgetBox = document.getElementById("forgot");
-
-var loginTab = document.getElementById("lt");
-var regTab = document.getElementById("rt");
-
-function regTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="visible";
-    loginBox.style.visibility="hidden";
-    forgetBox.style.visibility="hidden";
-
-    regTab.style.backgroundColor="rgb(12, 132, 189)";
-    loginTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-}
-function loginTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="hidden";
-    loginBox.style.visibility="visible";
-    forgetBox.style.visibility="hidden";
-
-    loginTab.style.backgroundColor="rgb(12, 132, 189)";
-    regTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-}
-function forTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="hidden";
-    loginBox.style.visibility="hidden";
-    forgetBox.style.visibility="visible";
-
-    regTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-    loginTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-
-}
-
-
-function register(){
-    event.preventDefault();
-
-    var email = document.getElementById("re").value;
-    var password = document.getElementById("rp").value;
-    var passwordRetype = document.getElementById("rrp").value;
-
-    if (email == ""){
-        alert("Email required.");
-        return ;
-    }
-    else if (password == ""){
-        alert("Password required.");
-        return ;
-    }
-    else if (passwordRetype == ""){
-        alert("Password required.");
-        return ;
-    }
-    else if ( password != passwordRetype ){
-        alert("Password don't match retype your Password.");
-        return;
-    }
-    else if(emailArray.indexOf(email) == -1){
-        emailArray.push(email);
-        passwordArray.push(password);
-
-        alert(email + "  Thanks for registration. \nTry to login Now");
-
-        document.getElementById("re").value ="";
-        document.getElementById("rp").value="";
-        document.getElementById("rrp").value="";
-    }
-    else{
-        alert(email + " is already register.");
-        return ;
-    }
-}
-function login(){
-    event.preventDefault();
-
-    var email = document.getElementById("se").value;
-    var password = document.getElementById("sp").value;
-
-    var i = emailArray.indexOf(email);
-
-    if(emailArray.indexOf(email) == -1){
-        if (email == ""){
-            alert("Email required.");
-            return ;
+function validar(){
+    var nome = document.getElementById("nome").value;
+    var pass = document.getElementById("pass").value;
+   
+    for (const i in m){
+        if ( nome == m[i] && pass == p[i]){
+            alert ("Login com sucesso");
+            window.location = "index.html"; // Redireciona 
+            return false;
         }
-        alert("Email does not exist.");
-        return ;
     }
-    else if(passwordArray[i] != password){
-        if (password == ""){
-            alert("Password required.");
-            return ;
-        }
-        alert("Password does not match.");
-        return ;
-    }
-    else {
-        alert(email + " yor are login Now \n welcome to our website.");
-
-        document.getElementById("se").value ="";
-        document.getElementById("sp").value="";
-        return ;
-    }
-
+        tentativa --;// Decrementing by one.
+        alert("tens "+tentativa+" tentativas;");
+        // Disabling fields after 3 attempts.
+        
+    
+        if( tentativa == 0){
+            document.getElementById("nome").disabled = true;
+            document.getElementById("pass").disabled = true;
+            document.getElementById("submit").disabled = true;
+        return false;
+            }
+    
+    
 }
-function forgot(){
-    event.preventDefault();
+function registar(){
 
-    var email = document.getElementById("fe").value;
+    var nome = document.getElementById("nome").value;
+    var pass = document.getElementById("pass").value;
 
-    if(emailArray.indexOf(email) == -1){
-        if (email == ""){
-            alert("Email required.");
-            return ;
+    for (const i in m){
+        if ( nome == m[i] && pass == p[i]){
+            alert ("registo já existe");
+            window.location = "login.html"; // Redireciona 
+            return false;
         }
-        alert("Email does not exist.");
-        return ;
     }
+    m.push(nome);
+    p.push(pass);
+    console.log(m);
+    console.log(p);
+    localStorage.removeItem("mail");
+    localStorage.removeItem("pass");
+    localStorage.setItem("mail",JSON.stringify(r_email));
+    localStorage.setItem("pass",JSON.stringify(r_pass));
 
-    alert("email is send to your email check it in 24hr. \n Thanks");
-    document.getElementById("fe").value ="";
+    var x = JSON.parse(localStorage.getItem("mail"));
+    var y = JSON.parse(localStorage.getItem("pass"));
+    console.log(x);
+
+
 }
