@@ -14,6 +14,7 @@
 
 
 <body>
+    <script src="js/duvida.js"></script>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,1);">
         <div class="container-fluid">
@@ -73,24 +74,24 @@
             <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
                 <label for="Nome" class="col-md-2 col-form-label">E-mail:</label>
                 <div class="col-md-10">
-                    <input type="text" name="Nome" id="Nome" class="form-control" placeholder=" seu e-mail"/>
+                    <input type="text" name="mail" id="mail" class="form-control" placeholder=" seu e-mail"/>
                 </div>
             </div>
             <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
                 <label for="Morada" class="col-md-2 col-form-label">Nome:</label>
                 <div class="col-md-10">
-                    <textarea name="Morada" id="Morada" class="form-control" rows="1" placeholder="Seu Nome"></textarea>
+                    <textarea name="nome" id="nome" class="form-control" rows="1" placeholder="Seu Nome"></textarea>
                 </div>
             </div>
             <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
                 <label class="col-md-2 col-form-label">Duvida/sugestão:</label>
                 <div class="col-md-10">
-                    <input type="text" name="_replyto" id="Mail" class="form-control" placeholder="diga-nos o que penssa" required />
+                    <input type="text" name="texto" id="texto" class="form-control" placeholder="diga-nos o que penssa" required />
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-md-10 offset-md-2">
-                    <input type="submit" name="submitBtn" value="Enviar" class="btn btn-primary" onclick="return validate()" />
+                    <input type="submit" name="submitBtn" value="Enviar" class="btn btn-primary" onclick="return guardar()" />
                     <input type="reset" name="resetBtn" value="Limpar" class="btn btn-secondary" />
                 </div>
             </div>
