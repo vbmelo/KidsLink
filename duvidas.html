@@ -61,10 +61,40 @@
     </div>
     <!--Conteudo-->
     <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-        <h1 style="font-size:36px;">Dúvidas?</h1>
+        <h1 style="font-size:36px;">Tem alguma duvida ou sugestão? diga-nos aqui!</h1>
+        <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
     </div>
     <div class="container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfxWZMakPw-wx7ap-oPRVlHkkAVx-gFWLlmVro-9YpagYcqXw/viewform?embedded=true" width="100%" height="933" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+        <div class="row image-grid">
+    </div>
+    <!--formulario-->
+    <div class="container">
+        <form action="https://formspree.io/f/mbjppyzg" method="POST">
+            <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                <label for="Nome" class="col-md-2 col-form-label">E-mail:</label>
+                <div class="col-md-10">
+                    <input type="text" name="Nome" id="Nome" class="form-control" placeholder="Seu Nome"/>
+                </div>
+            </div>
+            <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                <label for="Morada" class="col-md-2 col-form-label">Nome:</label>
+                <div class="col-md-10">
+                    <textarea name="Morada" id="Morada" class="form-control" rows="1" placeholder="Sua Morada"></textarea>
+                </div>
+            </div>
+            <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                <label class="col-md-2 col-form-label">Duvida/sugestão:</label>
+                <div class="col-md-10">
+                    <input type="text" name="_replyto" id="Mail" class="form-control" placeholder="Seu e-mail" required />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-10 offset-md-2">
+                    <input type="submit" name="submitBtn" value="Enviar" class="btn btn-primary" onclick="return validate()" />
+                    <input type="reset" name="resetBtn" value="Limpar" class="btn btn-secondary" />
+                </div>
+            </div>
+        </form>
     </div>
     <!--formulario-->
     <!--
