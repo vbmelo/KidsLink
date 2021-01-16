@@ -4,8 +4,9 @@ var tentativa = 3; // numero de tentativas.
 
 
 if(localStorage.getItem("mail")==null){
-    localStorage.setItem("mail",JSON.stringify(["p@gmail.com","g@gmail.com"]));
+    localStorage.setItem("mail",JSON.stringify(["cliente@gmail.com","organizador@gmail.com","administrador@gmail.com"]));
     localStorage.setItem("pass",JSON.stringify(["123","321"]));
+    localStorage.setItem("tipo_u","1");
 }
 
 
@@ -15,10 +16,25 @@ function validar(){
     var p = JSON.parse(localStorage.getItem("pass"));
     var nome = document.getElementById("nome").value;
     var pass = document.getElementById("pass").value;
+    
     console.log(m);
     console.log(p);
     for (const i in m){
         if ( nome == m[i] && pass == p[i]){
+            if(m=="organizador@gmail.com"){
+                localStorage.setItem("tipo_u","2");
+                alert ("Login com sucesso");
+                window.location = "perfil_o.html"; // Redireciona 
+                return false;
+                
+            }
+            if(m=="administrador@gmail.com"){
+                localStorage.setItem("tipo_u","3");
+                alert ("Login com sucesso");
+                window.location = "perfil_a.html"; // Redireciona 
+                return false;
+            }
+
             alert ("Login com sucesso");
             window.location = "index.html"; // Redireciona 
             return false;
