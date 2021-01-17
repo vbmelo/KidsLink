@@ -17,7 +17,7 @@ function guardar(){
     var espaco = document.getElementById("espaco").value;
     var pessoa = document.getElementById("pessoa").value;
     
-
+    //extrair os valores das checkboxes
     if(document.getElementById("pi").checked){
       var  pi="sim";
     }
@@ -105,7 +105,7 @@ function guardar(){
     festa.push(orcamento);
     //array dos 0-19
     localStorage.setItem("festa",JSON.stringify(festa));
-    console.log(festa);
+    //para apagar é so a maneira para ler o array das festas/testar
     for (var i = 0; i < festa.length; i=i+20){
         console.log("nome");
         console.log(festa[i]);
