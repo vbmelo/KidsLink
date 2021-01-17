@@ -117,10 +117,10 @@ function login(){
         alert(email + "Bem vindo.");
         localStorage.setItem("mail_l",JSON.stringify(email));
 
-        if(mail=="organizador@gmail.com"){
+        if(email=="organizador@gmail.com"){
             localStorage.setItem("tipo_u","2")
         }
-        if(mail=="administrador@gmail.com"){
+        if(email=="administrador@gmail.com"){
             localStorage.setItem("tipo_u","3")
         }
 
