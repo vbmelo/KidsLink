@@ -2,6 +2,7 @@ if(localStorage.getItem("mail")==null){
     localStorage.setItem("mail",JSON.stringify(["cliente@gmail.com","organizador@gmail.com","administrador@gmail.com","t"]));
     localStorage.setItem("pass",JSON.stringify(["cli","org","admin","t"]));
     localStorage.setItem("tipo_u","1");
+    localStorage.setItem("mail_l","temp");
 }
 
 
@@ -114,6 +115,17 @@ function login(){
     }
     else {
         alert(email + "Bem vindo.");
+        localStorage.setItem("mail_l",JSON.stringify(email));
+
+        if(mail=="organizador@gmail.com"){
+            localStorage.setItem("tipo_u","2")
+        }
+        if(mail=="administrador@gmail.com"){
+            localStorage.setItem("tipo_u","3")
+        }
+
+        localStorage.setItem("tipo_u","1")
+
 
         document.getElementById("se").value ="";
         document.getElementById("sp").value="";
