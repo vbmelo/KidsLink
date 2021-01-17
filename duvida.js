@@ -23,7 +23,7 @@ function guardar(){
     var ArrayDuvidas =JSON.parse(localStorage.getItem("ArrayDuvidas"));//refresca var para fazer o for
 
     console.log(ArrayDuvidas.length);
-    
+///isto é o codigo para aceder a informação, 3 campos são uma sugestão, 
     for (var i = 0; i < ArrayDuvidas.length; i=i+3) {
         
         console.log("mail");
@@ -34,7 +34,6 @@ function guardar(){
 
         console.log("texto");
         console.log(ArrayDuvidas[i+2]);
-        console.log(i);
       } 
 
 
