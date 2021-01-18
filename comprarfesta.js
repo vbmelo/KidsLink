@@ -172,6 +172,10 @@ function guardar(){
     window.location = "index.html"; // Redireciona
   }
 
+function enviarOrcamento() {
+  var orcamentoTexto = $(`#orcamentoBox${contadorRow}`).text();
+  console.log("texto do Orcamento = "+  orcamentoTexto);
+}
 
 var contadorRow = 0;
 function listarFesta() {
@@ -212,9 +216,8 @@ function listarFesta() {
             </ul>
           </td><br />
           <td id="Orcamento_Lista">
-            <textarea id="orcamentoBox" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;">
-            </textarea>
-            
+            <textarea id="orcamentoBox${contadorRow}" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
+            <button type="button" class="button btn-primary" onclick="enviarOrcamento()">Enviar</button>
           </td>
           </tr>
           `);
