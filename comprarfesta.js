@@ -197,7 +197,7 @@ function listarFesta() {
   var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
   console.log(ArrayFesta);
   console.log("Length do array" + ArrayFesta.length);
-    if(ArrayFesta.length>=19){
+    if(ArrayFesta.length>=20){
         var i =  0; 
         $.each(ArrayFesta, function(){
           if (i  >= ArrayFesta.length) {
@@ -236,7 +236,7 @@ function listarFesta() {
         `);
         $('[name="orcamentoBox"]').attr("id",`${contadorRow}`);// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
         contadorRow +=1;
-        i += 20;
+        i += 21;
           });
       }
      
