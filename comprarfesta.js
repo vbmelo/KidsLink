@@ -10,7 +10,7 @@ if(localStorage.getItem("festa")==null){
 
 function guardar(){
   var festa =[];
-  var id = Json.parse(localStorage.getItem("conta"));
+  var conta = Json.parse(localStorage.getItem("conta"));
   var nome = document.getElementById("nome").value;
   var data = document.getElementById("data").value;
   var morada = document.getElementById("morada").value;
@@ -182,7 +182,6 @@ function guardar(){
   window.location = "index.html"; // Redireciona
 }
 
-<<<<<<< HEAD
 function enviarOrcamento(elem) {
   var orcamentoName = $('[name="orcamentoBox"]').val();
   var orcamentoID  = $('[name="orcamentoBox"]').attr("id");
@@ -229,13 +228,13 @@ function listarFesta() {
           </ul>
         </td><br />
         <td id="Orcamento_Lista">
-          <textarea id="" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
+          <textarea id="${ArrayFesta[i]}" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
           <button type="button" class="button btn-primary" onclick="enviarOrcamento(this)">Enviar</button>
         </td>
         </tr>
         `);
-        $('[name="orcamentoBox"]').attr("id",`${contadorRow}`);// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
-        contadorRow +=1;
+        // $('[name="orcamentoBox"]').attr("id",`${contadorRow}`);// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
+        // contadorRow +=1;
         i += 21;
           });
       }
