@@ -16,59 +16,59 @@ function guardar(){
     var tema = document.getElementById("tema").value;
     var espaco = document.getElementById("espaco").value;
     var pessoa = document.getElementById("pessoa").value;
-    
+    alert("Festa Guardada");
     //extrair os valores das checkboxes
     if(document.getElementById("pi").checked){
-      var  pi="sim";
+      var  pi="Pintura facial";
     }
     else{
         var pi="nao";
     }
 
     if(document.getElementById("mu").checked){
-        var  mu="sim";
+        var  mu="Musica";
       }
       else{
           var mu="nao";
       }
-     
+
     if(document.getElementById("ma").checked){
-        var  ma="sim";
+        var  ma="Magico";
       }
       else{
           var ma="nao";
       }
 
       if(document.getElementById("pa").checked){
-        var  pa="sim";
+        var  pa="Palhaço";
       }
       else{
           var pa="nao";
       }
 
       if(document.getElementById("c_s").checked){
-        var  c_s="sim";
+        var  c_s="Castelo Saltitante";
       }
       else{
           var c_s="nao";
       }
 
       if(document.getElementById("es").checked){
-        var  es="sim";
+        var  es="Escorrega";
       }
       else{
           var es="nao";
       }
 
       if(document.getElementById("co").checked){
-        var  co="sim";
+        var  co="Convites";
       }
       else{
           var co="nao";
       }
 
       if(document.getElementById("ca").checked){
-        var  ca="sim";
+        var  ca="Catering";
       }
       else{
           var ca="nao";
@@ -169,6 +169,7 @@ function guardar(){
 
         
     }
+    window.location = "index.html"; // Redireciona
   }
 
 
@@ -176,20 +177,19 @@ var contadorRow = 0;
 function listarFesta() {
     $("#Table_Festas_Pendestes").show();
     
-    var ArrayFesta =JSON.parse(localStorage.getItem("festa"));
+    var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
     console.log(ArrayFesta);
     console.log("Length do array" + ArrayFesta.length);
       if(ArrayFesta.length>=19){
-          var i =  0;
-            
-           $.each(ArrayFesta, function(){
+          var i =  0; 
+          $.each(ArrayFesta, function(){
             if (i  >= ArrayFesta.length) {
                 console.log(i);
                 console.log("brakpoint??");
                 return;
                 }
           $("#tbody_Lista").append(`
-           <tr id="Tr_Lista"><br />
+          <tr id="Tr_Lista"><br />
           <th scope="row">${contadorRow}</th><br />
           <td id="Nome_Lista">${ArrayFesta[i]}</td><br />
           <td id="Morada_Lista">${ArrayFesta[i+1]}</td><br />
@@ -197,12 +197,28 @@ function listarFesta() {
           <td id="Hora_inicio_Lista">${ArrayFesta[i+3]}</td><br />
           <td id="Hora_fim_Lista">${ArrayFesta[i+4]}</td><br />
           <td id="Pessoas_Lista">${ArrayFesta[i+5]}</td><br />
-          <td id="Espaço_Lista">${ArrayFesta[i+6]}</td><br />
-          <td id="ser_Lista">${ArrayFesta[i+7]}</td><br />              
+          <td id="Tema_Lista">${ArrayFesta[i+6]}</td><br />
+          <td id="Espaço_Lista">${ArrayFesta[i+7]}</td><br />
+          <td id="Ser_Lista">
+            <ul id="Ser_ul">
+              <li>${ArrayFesta[i+8]}</li>
+              <li>${ArrayFesta[i+9]}</li>
+              <li>${ArrayFesta[i+10]}</li>
+              <li>${ArrayFesta[i+11]}</li>
+              <li>${ArrayFesta[i+12]}</li>
+              <li>${ArrayFesta[i+13]}</li>
+              <li>${ArrayFesta[i+14]}</li>
+              <li>${ArrayFesta[i+14]}</li>
+            </ul>
+          </td><br />
+          <td id="Orcamento_Lista">
+            <textarea id="orcamentoBox" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;">
+            </textarea>
+          </td>
           </tr>
           `);
           contadorRow +=1;
-          i += 19;
+          i += 20;
                 
                 
             });
