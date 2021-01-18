@@ -22,56 +22,56 @@ function guardar(){
       var  pi="Pintura facial";
     }
     else{
-        var pi="nao";
+        var pi="";
     }
 
     if(document.getElementById("mu").checked){
         var  mu="Musica";
       }
       else{
-          var mu="nao";
+          var mu="";
       }
 
     if(document.getElementById("ma").checked){
         var  ma="Magico";
       }
       else{
-          var ma="nao";
+          var ma="";
       }
 
       if(document.getElementById("pa").checked){
         var  pa="Palhaço";
       }
       else{
-          var pa="nao";
+          var pa="";
       }
 
       if(document.getElementById("c_s").checked){
         var  c_s="Castelo Saltitante";
       }
       else{
-          var c_s="nao";
+          var c_s="";
       }
 
       if(document.getElementById("es").checked){
         var  es="Escorrega";
       }
       else{
-          var es="nao";
+          var es="";
       }
 
       if(document.getElementById("co").checked){
         var  co="Convites";
       }
       else{
-          var co="nao";
+          var co="";
       }
 
       if(document.getElementById("ca").checked){
         var  ca="Catering";
       }
       else{
-          var ca="nao";
+          var ca="";
       }
  
       
