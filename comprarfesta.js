@@ -174,9 +174,9 @@ function guardar(){
 
   function enviarOrcamento(elem) {
     var orcamentoName = $('[name="orcamentoBox"]').val();
-    var orcamentoID  = $('[name="orcamentoBox"]');
+    var orcamentoID  = $('[name="orcamentoBox"]').attr("id");
     console.log("texto do Orcamento = "+  orcamentoName);
-    console.log("id da box" + orcamentoID);
+    console.log("id da box = " + orcamentoID);
   }
 
 var contadorRow = 0;
