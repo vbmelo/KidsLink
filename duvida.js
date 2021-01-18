@@ -43,10 +43,39 @@ var contadorRow = 0;
 function listarDuvidas() {
     $("#Table_Duvidas").show();
 
-    var ArrayDuvidas =JSON.parse(localStorage.getItem("ArrayDuvidas"));//refresca var para fazer o for
+    var ArrayDuvidas =JSON.parse(localStorage.getItem("ArrayDuvidas"));
 
     console.log("Length do array" + ArrayDuvidas.length);
-    ///isto é o codigo para aceder a informação, 3 campos são uma sugestão, 
+   if(ArrayDuvidas.length>=3){
+        var i =  0;
+        
+        $.each(ArrayDuvidas, function(){
+            if (i  >= ArrayDuvidas.length) {
+                console.log("brakpoint??");
+                return;
+            }
+            $("#tbody_Lista").append(`
+            <tr id="Tr_Lista"><br />
+            <th scope="row">${contadorRow}</th><br />
+            <td id="Mail_Lista">${ArrayDuvidas[i]}</td><br />
+            <td id="Nome_Lista">${ArrayDuvidas[i+1]}</td><br />
+            <td id="Texto_Lista">${ArrayDuvidas[i+2]}</td><br />
+            </tr>
+            `);
+            contadorRow +=1;
+            console.log('contador==' + contadorRow);
+            console.log(ArrayDuvidas);
+            i += 3;
+            
+            
+        });
+    }
+   // else{ tentar fazer caso n haja dados
+   //     $("#tbody_Lista").append(`Não existe sugestões ou duvidas`);
+   // }
+} 
+
+ ///isto é o codigo para aceder a informação, 3 campos são uma sugestão, 
     // for (var i = 0; i < ArrayDuvidas.length; i=i+3) {
         
     //     console.log("mail");
@@ -61,26 +90,3 @@ function listarDuvidas() {
     //     console.log("texto");
     //     console.log(ArrayDuvidas[i+2]);
     //   } 
-    var i =  0;
-    
-      $.each(ArrayDuvidas, function(){
-        if (i  >= ArrayDuvidas.length) {
-            console.log("brakpoint??");
-            return;
-        }
-        $("#tbody_Lista").append(`
-        <tr id="Tr_Lista"><br />
-        <th scope="row">${contadorRow}</th><br />
-        <td id="Mail_Lista">${ArrayDuvidas[i]}</td><br />
-        <td id="Nome_Lista">${ArrayDuvidas[i+1]}</td><br />
-        <td id="Texto_Lista">${ArrayDuvidas[i+2]}</td><br />
-        </tr>
-        `);
-        contadorRow +=1;
-        console.log('contador==' + contadorRow);
-        console.log(ArrayDuvidas);
-        i += 3;
-        
-        
-    });
-} 
