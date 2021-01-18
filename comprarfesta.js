@@ -214,6 +214,7 @@ function listarFesta() {
           <td id="Orcamento_Lista">
             <textarea id="orcamentoBox" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;">
             </textarea>
+            
           </td>
           </tr>
           `);
