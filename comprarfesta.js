@@ -83,14 +83,13 @@ function guardar(){
     var orcamento=0;
     console.log(typeof festa);
     festa.push(nome);
-    festa.push(data);
-    ///festa.push(data);
     festa.push(morada);
+    festa.push(data);
     festa.push(hora_i);
     festa.push(hora_f);
+    festa.push(pessoa);
     festa.push(tema);
     festa.push(espaco);
-    festa.push(pessoa);
     festa.push(pi);
     festa.push(mu);
     festa.push(ma);
@@ -170,8 +169,48 @@ function guardar(){
 
         
     }
+  }
 
 
-}
+var contadorRow = 0;
+function listarFesta() {
+    $("#Table_Festas_Pendestes").show();
+    
+    var ArrayFesta =JSON.parse(localStorage.getItem("festa"));
+    console.log(ArrayFesta);
+    console.log("Length do array" + ArrayFesta.length);
+      if(ArrayFesta.length>=19){
+          var i =  0;
+            
+           $.each(ArrayFesta, function(){
+            if (i  >= ArrayFesta.length) {
+                console.log(i);
+                console.log("brakpoint??");
+                return;
+                }
+          $("#tbody_Lista").append(`
+           <tr id="Tr_Lista"><br />
+          <th scope="row">${contadorRow}</th><br />
+          <td id="Nome_Lista">${ArrayFesta[i]}</td><br />
+          <td id="Morada_Lista">${ArrayFesta[i+1]}</td><br />
+          <td id="Data_Lista">${ArrayFesta[i+2]}</td><br />
+          <td id="Hora_inicio_Lista">${ArrayFesta[i+3]}</td><br />
+          <td id="Hora_fim_Lista">${ArrayFesta[i+4]}</td><br />
+          <td id="Pessoas_Lista">${ArrayFesta[i+5]}</td><br />
+          <td id="Espaço_Lista">${ArrayFesta[i+6]}</td><br />
+          <td id="ser_Lista">${ArrayFesta[i+7]}</td><br />
+                         
+          </tr>
+          `);
+          contadorRow +=1;
+          i += 19;
+                
+                
+            });
+        }
+       
+    } 
+//<td id="orcamento_Lista"> <input type="text" name="orcamento" id="orcamento" placeholder=""/> </td><br /> tentativa de por textbox na listagem para dfefenir orçamento
+
 
 
