@@ -172,12 +172,12 @@ function guardar(){
     window.location = "index.html"; // Redireciona
   }
 
-function enviarOrcamento(elem) {
-  var orcamentoName = $('[name="orcamentoBox"]').val();
-  var orcamentoID  = $('[name="orcamentoBox"]').attr("id",`${contadorRow}`);
-  console.log("texto do Orcamento = "+  orcamentoName);
-  console.log("id da box" + orcamentoID);
-}
+  function enviarOrcamento(elem) {
+    var orcamentoName = $('[name="orcamentoBox"]').val();
+    var orcamentoID  = $('[name="orcamentoBox"]');
+    console.log("texto do Orcamento = "+  orcamentoName);
+    console.log("id da box" + orcamentoID);
+  }
 
 var contadorRow = 0;
 function listarFesta() {
@@ -223,6 +223,7 @@ function listarFesta() {
           </td>
           </tr>
           `);
+          $('[name="orcamentoBox"]').attr("id",`${contadorRow}`);// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
           contadorRow +=1;
           i += 20;
             });
