@@ -172,9 +172,11 @@ function guardar(){
     window.location = "index.html"; // Redireciona
   }
 
-function enviarOrcamento() {
-  var orcamentoTexto = $(`#orcamentoBox${contadorRow}`).text();
-  console.log("texto do Orcamento = "+  orcamentoTexto);
+function enviarOrcamento(elem) {
+  var orcamentoName = $('[name="orcamentoBox"]').val();
+  var orcamentoID  = $('[name="orcamentoBox"]').attr("id",`${contadorRow}`);
+  console.log("texto do Orcamento = "+  orcamentoName);
+  console.log("id da box" + orcamentoID);
 }
 
 var contadorRow = 0;
@@ -216,15 +218,13 @@ function listarFesta() {
             </ul>
           </td><br />
           <td id="Orcamento_Lista">
-            <textarea id="orcamentoBox${contadorRow}" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
-            <button type="button" class="button btn-primary" onclick="enviarOrcamento()">Enviar</button>
+            <textarea id="" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
+            <button type="button" class="button btn-primary" onclick="enviarOrcamento(this)">Enviar</button>
           </td>
           </tr>
           `);
           contadorRow +=1;
           i += 20;
-                
-                
             });
         }
        
