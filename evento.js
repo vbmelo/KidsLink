@@ -61,7 +61,8 @@ function guardar(){
 
     var DadosCompra=JSON.parse(localStorage.getItem("DadosCompra"));
     
-    DadosCompra.push(nome,email,adultos,preco_a,crianca,preco_c,preco_f);//ordem :nome, mail, nº adultos, preço dos bilhetes para adulto, nº criança, preço dos bilhetes e o preço total da compra
+    DadosCompra.push(nome,email,adultos,preco_a,crianca,preco_c,preco_f,id_festa);//ordem :nome, mail, nº adultos, preço dos bilhetes para adulto, nº criança, preço dos bilhetes, preço total da compra e 
+    //id do evento para depois actualizar as vagas
     localStorage.setItem("DadosCompra",JSON.stringify(DadosCompra));//dados compra guardados para ser usados no check out
 
 }

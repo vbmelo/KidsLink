@@ -67,7 +67,6 @@ function listarDuvidas() {
             console.log(ArrayDuvidas);
             i += 3;
             
-            
         });
     }
    // else{ tentar fazer caso n haja dados

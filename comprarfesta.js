@@ -198,8 +198,7 @@ function listarFesta() {
           <td id="Hora_fim_Lista">${ArrayFesta[i+4]}</td><br />
           <td id="Pessoas_Lista">${ArrayFesta[i+5]}</td><br />
           <td id="Espaço_Lista">${ArrayFesta[i+6]}</td><br />
-          <td id="ser_Lista">${ArrayFesta[i+7]}</td><br />
-                         
+          <td id="ser_Lista">${ArrayFesta[i+7]}</td><br />              
           </tr>
           `);
           contadorRow +=1;
