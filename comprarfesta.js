@@ -19,56 +19,56 @@ function guardar(){
     
     //extrair os valores das checkboxes
     if(document.getElementById("pi").checked){
-      var  pi="sim";
+      var  pi="Pintura facial";
     }
     else{
         var pi="nao";
     }
 
     if(document.getElementById("mu").checked){
-        var  mu="sim";
+        var  mu="Musica";
       }
       else{
           var mu="nao";
       }
      
     if(document.getElementById("ma").checked){
-        var  ma="sim";
+        var  ma="Magico";
       }
       else{
           var ma="nao";
       }
 
       if(document.getElementById("pa").checked){
-        var  pa="sim";
+        var  pa="Palhaço";
       }
       else{
           var pa="nao";
       }
 
       if(document.getElementById("c_s").checked){
-        var  c_s="sim";
+        var  c_s="Castelo Saltitante";
       }
       else{
           var c_s="nao";
       }
 
       if(document.getElementById("es").checked){
-        var  es="sim";
+        var  es="Escorrega";
       }
       else{
           var es="nao";
       }
 
       if(document.getElementById("co").checked){
-        var  co="sim";
+        var  co="Convites";
       }
       else{
           var co="nao";
       }
 
       if(document.getElementById("ca").checked){
-        var  ca="sim";
+        var  ca="Catering";
       }
       else{
           var ca="nao";
@@ -179,7 +179,7 @@ function listarFesta() {
     var ArrayFesta =JSON.parse(localStorage.getItem("festa"));
     console.log(ArrayFesta);
     console.log("Length do array" + ArrayFesta.length);
-      if(ArrayFesta.length>=19){
+      if(ArrayFesta.length>=20){
           var i =  0;
             
            $.each(ArrayFesta, function(){
