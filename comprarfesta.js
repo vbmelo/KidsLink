@@ -10,7 +10,7 @@ if(localStorage.getItem("festa")==null){
 
 function guardar(){
   var festa =[];
-  var id = Json.parse(localStorage.getItem("conta"));
+  var conta = JSON.parse(localStorage.getItem("conta"));
   var nome = document.getElementById("nome").value;
   var data = document.getElementById("data").value;
   var morada = document.getElementById("morada").value;
@@ -182,7 +182,6 @@ function guardar(){
   window.location = "index.html"; // Redireciona
 }
 
-<<<<<<< HEAD
 function enviarOrcamento(elem) {
   var orcamentoName = $('[name="orcamentoBox"]').val();
   var orcamentoID  = $('[name="orcamentoBox"]').attr("id");
