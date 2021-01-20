@@ -80,7 +80,7 @@ function guardar(){
     }
 
     
-  var festa =JSON.parse(localStorage.getItem("festa"));
+  var festa = JSON.parse(localStorage.getItem("festa"));
   var mail = JSON.parse(localStorage.getItem("mail_l"));
 
   var id_org=2;
@@ -138,7 +138,7 @@ function listarFesta() {
 
               return;
               }
-        $("#tbody_Lista").append(
+        $("#tbody_Lista").append(`
         <tr id="Tr_Lista"><br />
         <th scope="row">${contadorRow}</th><br />
         <td id="Nome_Lista">${ArrayFesta[i+1]}</td><br />
@@ -166,7 +166,7 @@ function listarFesta() {
           <button type="button" class="button btn-primary" onclick="enviarOrcamento(this)">Enviar</button>
         </td>
         </tr>
-        );
+        `);
         $('[name="orcamentoBox"]').attr("id");// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
 
         contadorRow +=1;
