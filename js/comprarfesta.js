@@ -10,7 +10,9 @@ if(localStorage.getItem("festa")==null){
 
 function guardar(){
   var festa =[];
-  var conta = Json.parse(localStorage.getItem("conta"));
+
+  var conta = JSON.parse(localStorage.getItem("conta"));
+
   var nome = document.getElementById("nome").value;
   var data = document.getElementById("data").value;
   var morada = document.getElementById("morada").value;
@@ -109,76 +111,9 @@ function guardar(){
   conta++;
   localStorage.setItem("conta",JSON.stringify(conta));
 
-  //array dos 0-20
+  //array dos 0-21
   localStorage.setItem("festa",JSON.stringify(festa));
-  //para apagar é so a maneira para ler o array das festas/testar
-  for (var i = 0; i < festa.length; i=i+20){
-      console.log("id da festa");
-      console.log(festa[0]);
-
-      console.log("nome");
-      console.log(festa[i+1]);
-
-      console.log("data");
-      console.log(festa[i+2]);
-
-      console.log("morada");
-      console.log(festa[i+2]);
-
-      console.log("hora inicio");
-      console.log(festa[i+3]);
-
-      console.log("hora fim");
-      console.log(festa[i+4]);
-
-      console.log("tema");
-      console.log(festa[i+5]);
-
-      console.log("espaço");
-      console.log(festa[i+6]);
-
-      console.log("pessoas");
-      console.log(festa[i+7]);
-
-      console.log("pintor");
-      console.log(festa[i+8]);
-
-      console.log("musico");
-      console.log(festa[i+9]);
-
-      console.log("magico");
-      console.log(festa[i+10]);
-
-      console.log("palhaço");
-      console.log(festa[i+11]);
-
-      console.log("castelo saltitante");
-      console.log(festa[i+12]);
-
-      console.log("escorrega");
-      console.log(festa[i+13]);
-
-      console.log("convites");
-      console.log(festa[i+14]);
-
-      console.log("catering");
-      console.log(festa[i+15]);
-
-      console.log("mail do cliente");
-      console.log(festa[i+16]);
-
-      console.log("id do organizador");
-      console.log(festa[i+17]);
-
-      console.log("estado 0 é sem orçamento 1 com orçamento");//se tiver 0 pararece no perfil do organizador se for 1 aparece na pagina das festas a organizar e aparece a espera de pagamento para o cliente
-      console.log(festa[i+18]);
-
-      console.log("valor do orçamento");//o arganizador depois atribiu um valor
-      console.log(festa[i+19]);
-      console.log("/////");
-
-      
-  }
+  
   window.location = "index.html"; // Redireciona
 }
 
@@ -192,7 +127,7 @@ function enviarOrcamento(elem) {
 var contadorRow = 0;
 function listarFesta() {
   $("#Table_Festas_Pendestes").show();
-  
+
   var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
   console.log(ArrayFesta);
   console.log("Length do array" + ArrayFesta.length);
@@ -200,11 +135,10 @@ function listarFesta() {
         var i =  0; 
         $.each(ArrayFesta, function(){
           if (i  >= ArrayFesta.length) {
-              console.log(i);
-              console.log("brakpoint??");
+
               return;
               }
-        $("#tbody_Lista").append(`
+        $("#tbody_Lista").append(
         <tr id="Tr_Lista"><br />
         <th scope="row">${contadorRow}</th><br />
         <td id="Nome_Lista">${ArrayFesta[i+1]}</td><br />
@@ -228,20 +162,26 @@ function listarFesta() {
           </ul>
         </td><br />
         <td id="Orcamento_Lista">
-          <textarea id="${ArrayFesta[i]}" name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
+          <textarea id='${conta}' name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
           <button type="button" class="button btn-primary" onclick="enviarOrcamento(this)">Enviar</button>
         </td>
         </tr>
-        `);
-        // $('[name="orcamentoBox"]').attr("id",`${contadorRow}`);// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
-        // contadorRow +=1;
+        );
+        $('[name="orcamentoBox"]').attr("id");// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
+
+        contadorRow +=1;
         i += 21;
           });
       }
-     
-  } 
+
+  }
+
+function enviarOrcamento(){
+
+ // var x=document.getElementById("1").value;
+  //console.log(x);
 
 
-
+}
 
 

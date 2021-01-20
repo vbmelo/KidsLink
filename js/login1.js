@@ -119,9 +119,13 @@ function login(){
 
         if(email=="organizador@gmail.com"){
             localStorage.setItem("tipo_u","2")
+            window.location = "organizador.html";
+            return ;
         }
         if(email=="administrador@gmail.com"){
             localStorage.setItem("tipo_u","3")
+            window.location = "admin.html";
+            return ;
         }
 
         localStorage.setItem("tipo_u","1")
