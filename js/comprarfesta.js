@@ -162,8 +162,8 @@ function listarFesta() {
           </ul>
         </td><br />
         <td id="Orcamento_Lista">
-          <textarea id='${conta}' name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
-          <button type="button" class="button btn-primary" onclick="enviarOrcamento(this)">Enviar</button>
+          <textarea id='${ArrayFesta[i]}' name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
+          <button type="button" class="button btn-primary" onClick="enviarOrcamento('${ArrayFesta[i]}')">Enviar</button>
         </td>
         </tr>
         `);
@@ -176,12 +176,14 @@ function listarFesta() {
 
   }
 
-function enviarOrcamento(){
-
- // var x=document.getElementById("1").value;
-  //console.log(x);
-
-
+function enviarOrcamento(id){
+console.log(id);
+ //console.log(document.getElementById("1"));
+// console.log(document.getElementById("1").value);
+// console.log(document.getElementById("2"));
+// console.log(document.getElementById("2").value);
+// console.log(this.id_org);
+// document.geti
 }
 
 
