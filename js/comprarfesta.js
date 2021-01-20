@@ -21,7 +21,7 @@ function guardar(){
   var tema = document.getElementById("tema").value;
   var espaco = document.getElementById("espaco").value;
   var pessoa = document.getElementById("pessoa").value;
-  alert("Festa Guardada");
+  
   //extrair os valores das checkboxes
   if(document.getElementById("pi").checked){
     var  pi="Pintura facial";
@@ -113,7 +113,7 @@ function guardar(){
 
   //array dos 0-21
   localStorage.setItem("festa",JSON.stringify(festa));
-  
+  alert("Festa Guardada");
   window.location = "index.html"; // Redireciona
 }
 

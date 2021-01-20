@@ -7,19 +7,8 @@ if(localStorage.getItem("mail")==null){
 }
 
 
-function logout(){
-    var temp =document.querySelector("#bnt").textContent;
-
-    if((localStorage.getItem("mail_l")!="l") && (temp=="Logout"))
-    {
-        document.querySelector("#bnt").textContent="Login/Registo";
-        window.location="duvidas.html";
-        return;
-    }
-    else
-    {
-
-
+  
+    
 
 var loginBox = document.getElementById("login");
 var regBox = document.getElementById("register");
@@ -29,10 +18,6 @@ var loginTab = document.getElementById("lt");
 var regTab = document.getElementById("rt");
 
 
-if(localStorage.getItem("mail_l"!="l"))
-{
-    document.querySelector("#bnt").textContent="Logout";
-}
 
 
 function regTabFun(){
@@ -66,10 +51,6 @@ function forTabFun(){
     loginTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
 
 }
-
-
-
-
 
 
 
@@ -116,7 +97,7 @@ function register(){
 }
 
 
-}
+
 function forgot(){
     event.preventDefault();
 
@@ -134,7 +115,7 @@ function forgot(){
     alert("email enviado comfirme em 24 horas. \n Obrigado");
     document.getElementById("fe").value ="";
 }
-}
+
 
 
 
@@ -167,8 +148,7 @@ function login(){
     }
     else {
         alert(email + "Bem vindo.");
-        localStorage.setItem("mail_l",JSON.stringify(email));
-        document.querySelector("#bnt").textContent="Logout";
+        
         
 
         
