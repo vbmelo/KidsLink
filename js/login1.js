@@ -2,13 +2,24 @@ if(localStorage.getItem("mail")==null){
     localStorage.setItem("mail",JSON.stringify(["cliente@gmail.com","organizador@gmail.com","administrador@gmail.com","t"]));
     localStorage.setItem("pass",JSON.stringify(["cli","org","admin","t"]));
     localStorage.setItem("tipo_u","1");
-    localStorage.setItem("mail_l","temp");
+    localStorage.setItem("mail_l",JSON.stringify("l"));
+    
 }
 
 
+function logout(){
+    var temp =document.querySelector("#bnt").textContent;
 
-var emailArray=JSON.parse(localStorage.getItem("mail"));
-var passwordArray=JSON.parse(localStorage.getItem("pass"));
+    if((localStorage.getItem("mail_l")!="l") && (temp=="Logout"))
+    {
+        document.querySelector("#bnt").textContent="Login/Registo";
+        window.location="duvidas.html";
+        return;
+    }
+    else
+    {
+
+
 
 var loginBox = document.getElementById("login");
 var regBox = document.getElementById("register");
@@ -16,6 +27,13 @@ var forgetBox = document.getElementById("forgot");
 
 var loginTab = document.getElementById("lt");
 var regTab = document.getElementById("rt");
+
+
+if(localStorage.getItem("mail_l"!="l"))
+{
+    document.querySelector("#bnt").textContent="Logout";
+}
+
 
 function regTabFun(){
     event.preventDefault();
@@ -50,9 +68,16 @@ function forTabFun(){
 }
 
 
+
+
+
+
+
+
 function register(){
     event.preventDefault();
-
+    var emailArray=JSON.parse(localStorage.getItem("mail"));
+    var passwordArray=JSON.parse(localStorage.getItem("pass"));
     var email = document.getElementById("re").value;
     var password = document.getElementById("rp").value;
     var passwordRetype = document.getElementById("rrp").value;
@@ -89,53 +114,7 @@ function register(){
         return ;
     }
 }
-function login(){
-    event.preventDefault();
 
-    var email = document.getElementById("se").value;
-    var password = document.getElementById("sp").value;
-
-    var i = emailArray.indexOf(email);
-
-    if(emailArray.indexOf(email) == -1){
-        if (email == ""){
-            alert("Email necessario.");
-            return ;
-        }
-        alert("Email não existe.");
-        return ;
-    }
-    else if(passwordArray[i] != password){
-        if (password == ""){
-            alert("Password necessario.");
-            return ;
-        }
-        alert("Password não é igual.");
-        return ;
-    }
-    else {
-        alert(email + "Bem vindo.");
-        localStorage.setItem("mail_l",JSON.stringify(email));
-
-        if(email=="organizador@gmail.com"){
-            localStorage.setItem("tipo_u","2")
-            window.location = "organizador.html";
-            return ;
-        }
-        if(email=="administrador@gmail.com"){
-            localStorage.setItem("tipo_u","3")
-            window.location = "admin.html";
-            return ;
-        }
-
-        localStorage.setItem("tipo_u","1")
-
-
-        document.getElementById("se").value ="";
-        document.getElementById("sp").value="";
-        window.location = "index.html";
-        return ;
-    }
 
 }
 function forgot(){
@@ -154,4 +133,63 @@ function forgot(){
 
     alert("email enviado comfirme em 24 horas. \n Obrigado");
     document.getElementById("fe").value ="";
+}
+}
+
+
+
+function login(){
+    event.preventDefault();
+    
+      
+    var email = document.getElementById("se").value;
+    var password = document.getElementById("sp").value;
+    var emailArray=JSON.parse(localStorage.getItem("mail"));
+    var passwordArray=JSON.parse(localStorage.getItem("pass"));
+    var i = emailArray.indexOf(email);
+    
+
+    if(emailArray.indexOf(email) == -1){
+        if (email == ""){
+            alert("Email necessario.");
+            return;
+        }
+        alert("Email não existe.");
+        return;
+    }
+    else if(passwordArray[i] != password){
+        if (password == ""){
+            alert("Password necessario.");
+            return ;
+        }
+        alert("Password não é igual.");
+        return ;
+    }
+    else {
+        alert(email + "Bem vindo.");
+        localStorage.setItem("mail_l",JSON.stringify(email));
+        document.querySelector("#bnt").textContent="Logout";
+        
+
+        
+
+        if(email=="organizador@gmail.com"){
+            localStorage.setItem("tipo_u","2")
+            window.location = "organizador.html";
+            return ;
+        }
+        if(email=="administrador@gmail.com"){
+            localStorage.setItem("tipo_u","3")
+            window.location = "admin.html";
+            return ;
+        }
+
+        localStorage.setItem("tipo_u","1")
+
+
+        document.getElementById("se").value ="";
+        document.getElementById("sp").value="";
+        window.location = "duvidas.html";
+        return ;
+    }
 }
