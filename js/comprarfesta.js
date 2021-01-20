@@ -178,6 +178,7 @@ function listarFesta() {
 
 function enviarOrcamento(id){
 console.log(id);
+console.log(document.getElementById(id).value);
  //console.log(document.getElementById("1"));
 // console.log(document.getElementById("1").value);
 // console.log(document.getElementById("2"));
