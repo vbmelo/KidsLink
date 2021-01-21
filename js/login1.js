@@ -14,7 +14,7 @@ if(temp=="l" || temp==null){
 }
 else{
     document.querySelector("#bnt").textContent="Logout";
-    console.log("1");
+    
     
 
 }

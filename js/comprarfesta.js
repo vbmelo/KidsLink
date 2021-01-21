@@ -90,9 +90,9 @@ function guardar(){
   var mail = JSON.parse(localStorage.getItem("mail_l"));
 
   var id_org=2;
-  var estado=0;
+  var estado="com orcamento"; //mudar para sem orcamento no fim, mudar para testar
   var orcamento=0;
-  console.log(typeof festa);
+  
   festa.push(conta);
   festa.push(nome);
   festa.push(morada);
@@ -112,7 +112,7 @@ function guardar(){
   festa.push(ca);
   festa.push(mail);
   festa.push(id_org);
-  festa.push(estado);
+  festa.push(estado);//estados para festas: sem orcamento,com orcamento,paga
   festa.push(orcamento);
   conta++;
   localStorage.setItem("conta",JSON.stringify(conta));
@@ -187,4 +187,4 @@ function enviarOrcamento(id){
 console.log(id);
 console.log(document.getElementById(id).value);
 
-
+}
