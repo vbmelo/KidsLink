@@ -71,38 +71,31 @@
         </div>
     </div>
     <!--Conteudo-->
-    <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-        <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
-    </div>
-    <div class="container">
-        <div class="row image-grid">
-    </div>
-    <table class="table" id="Table_Festas_Pendestes" style="display: none;">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Morada</th>
-            <th scope="col">Data</th>
-            <th scope="col">hora inicio</th>
-            <th scope="col">Hora fim</th>
-            <th scope="col">Pessoas</th>
-            <th scope="col">Tema</th>
-            <th scope="col">Espaço</th>
-            <th scope="col">Serviços</th>
-            <th scope="col">Orçamento</th>
-            </tr>
-        </thead>
-        <tbody id="tbody_Lista">
-        </tbody>
-    </table>
+    <div class="tab">
+        <button class="tablinks" onclick="listar_festas_pendestes()">Festas Pendentes</button>
+        <button class="tablinks" onclick="listar_festas_pendestes()">Festas compradas</button>
+        <button class="tablinks" onclick="listar_servicos()">Serviços contratados</button>
+      </div>
+      
+      <!-- Tab content -->
+      <div id="London" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+      </div>
+      
+      <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+      </div>
+      
+      <div id="Tokyo" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
     <!--formulario-->
 
     
-    <div class="col-md-10 offset-md-2">
-        <input type="submit" name="submitBtn" value="Submit" class="btn btn-primary" onclick="listarFesta()" />
-        <input type="reset" name="resetBtn" value="Limpar" class="btn btn-secondary">
-    </div>
+    
     <!--formulario-->
     <!--
     <div class="d-grid gap-2" style="padding-top:70px; padding-left:200px; padding-right:200px; padding-bottom: 70px;">

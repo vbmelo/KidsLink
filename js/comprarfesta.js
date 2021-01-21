@@ -21,6 +21,12 @@ function guardar(){
   var tema = document.getElementById("tema").value;
   var espaco = document.getElementById("espaco").value;
   var pessoa = document.getElementById("pessoa").value;
+
+
+  ///mudar o texte do espaço
+  //if(tema=="")
+
+
   
   //extrair os valores das checkboxes
   if(document.getElementById("pi").checked){
@@ -127,7 +133,7 @@ function enviarOrcamento(elem) {
 var contadorRow = 0;
 function listarFesta() {
   $("#Table_Festas_Pendestes").show();
-
+  
   var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
   console.log(ArrayFesta);
   console.log("Length do array" + ArrayFesta.length);
@@ -150,25 +156,26 @@ function listarFesta() {
         <td id="Tema_Lista">${ArrayFesta[i+7]}</td><br />
         <td id="Espaço_Lista">${ArrayFesta[i+8]}</td><br />
         <td id="Ser_Lista">
-          <ul id="Ser_ul">
-            <li>${ArrayFesta[i+9]}</li>
-            <li>${ArrayFesta[i+10]}</li>
-            <li>${ArrayFesta[i+11]}</li>
-            <li>${ArrayFesta[i+12]}</li>
-            <li>${ArrayFesta[i+13]}</li>
-            <li>${ArrayFesta[i+14]}</li>
-            <li>${ArrayFesta[i+15]}</li>
-            <li>${ArrayFesta[i+16]}</li>
-          </ul>
-        </td><br />
-        <td id="Orcamento_Lista">
-          <textarea id='${ArrayFesta[i]}' name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
-          <button type="button" class="button btn-primary" onClick="enviarOrcamento('${ArrayFesta[i]}')">Enviar</button>
-        </td>
-        </tr>
-        `);
+          <ul id="Ser_ul">`);
+          if(ArrayFesta[i+9]!=""){ $("#tbody_Lista").append("<li>Pintor Facial</li>");}
+          if(ArrayFesta[i+10]!=""){ $("#tbody_Lista").append('<li>Musica}</li>');}
+          if(ArrayFesta[i+11]!=""){ $("#tbody_Lista").append('<li>Magico</li>');}
+          if(ArrayFesta[i+12]!=""){ $("#tbody_Lista").append('<li>Palhaço</li>');}
+          if(ArrayFesta[i+13]!=""){ $("#tbody_Lista").append('<li>Castelo Saltitante</li>');}
+          if(ArrayFesta[i+14]!=""){ $("#tbody_Lista").append('<li>Escorrega</li>');}
+          if(ArrayFesta[i+15]!=""){ $("#tbody_Lista").append('<li>Convites</li>');}
+          if(ArrayFesta[i+16]!=""){ $("#tbody_Lista").append('<li>Catering</li>');}  
+           
+          $("#tbody_Lista").append(`</ul>
+          </td><br />
+          <td id="Orcamento_Lista">
+            <textarea id='${ArrayFesta[i]}' name="orcamentoBox" rows="1" cols="10" placeholder="Orcamento" style="color: black;"></textarea><br />
+            <button type="button" class="button btn-primary" onClick="enviarOrcamento('${ArrayFesta[i]}')">Enviar</button>
+         </td>
+          </tr>`);
+        
         $('[name="orcamentoBox"]').attr("id");// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
-
+        
         contadorRow +=1;
         i += 21;
           });
@@ -179,12 +186,5 @@ function listarFesta() {
 function enviarOrcamento(id){
 console.log(id);
 console.log(document.getElementById(id).value);
- //console.log(document.getElementById("1"));
-// console.log(document.getElementById("1").value);
-// console.log(document.getElementById("2"));
-// console.log(document.getElementById("2").value);
-// console.log(this.id_org);
-// document.geti
-}
 
 
