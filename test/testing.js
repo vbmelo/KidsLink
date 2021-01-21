@@ -1,3 +1,20 @@
+var a=[1,2,3];
+console.log(a);
+a.splice(1);
+console.log(a);
+
+
+
+
+
+
+
+
+
+
+
+
+
 if(localStorage.getItem("mail")==null){
     localStorage.setItem("mail",JSON.stringify(["cliente@gmail.com","organizador@gmail.com","administrador@gmail.com","t"]));
     localStorage.setItem("pass",JSON.stringify(["cli","org","admin","t"]));

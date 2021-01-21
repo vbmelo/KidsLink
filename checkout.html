@@ -73,88 +73,71 @@
         <div class="row">
             <div class="col-75">
                 <div class="container">
-                <form action="/action_page.php">
-
-                    <div class="row">
-                    <div class="col-50">
-                        <h3>Endereço de Cobrança</h3>
-                        <label for="fname"><i class="fa fa-user"></i> Nome Completo</label>
-                        <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                        <input type="text" id="email" name="email" placeholder="john@example.com">
-                        <label for="adr"><i class="fa fa-address-card-o"></i> Morada</label>
-                        <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-                        <label for="city"><i class="fa fa-institution"></i> Cidade</label>
-                        <input type="text" id="city" name="city" placeholder="New York">
-
+                    <form action="">
+      
                         <div class="row">
-                        <div class="col-50">
-                            <label for="state">Distrito</label>
-                            <input type="text" id="state" name="state" placeholder="NY">
+                          <div class="col-50">
+                            <h3>Detalhes de pagamento</h3>
+                            <label for="fname"><i class="fa fa-user"></i> Nome</label>
+                            <input type="text" id="nome" name="firstname" value="" >
+                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                            <input type="text" id="email" name="email" value="">
+                            <label for="adr"><i class="fa fa-address-card-o"></i>Morada </label>
+                            <input type="text" id="morada" name="morada" value="">
+                            <label for="city"><i class="fa fa-institution"></i> Cidade</label>
+                            <input type="text" id="cidade" name="cidade" value="">
+                
+                            <div class="row">
+                              <div class="col-50">
+                                <label for="state">Distrito</label>
+                                <input type="text" id="dis" name="dis" >
+                              </div>
+                              <div class="col-50">
+                                <label for="zip">Código Postal</label>
+                                <input type="text" id="zip" name="zip" >
+                              </div>
+                            </div>
+                          </div>
+                
+                          <div class="col-50">
+                            <h3>Pagamento</h3>
+                            <label for="fname">Métodos de pagamento</label>
+                            <div class="icon-container">
+                              <i class="fa fa-cc-visa" style="color:navy;"></i>
+                              <i class="fa fa-cc-amex" style="color:blue;"></i>
+                              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                              <i class="fa fa-cc-discover" style="color:orange;"></i>
+                            </div>
+                            <label for="cnome">Nome no cartão</label>
+                            <input type="text" id="cname" name="cardname" >
+                            <label for="ccnum">Número do cartão</label>
+                            <input type="text" id="ccnum" name="cardnumber" >
+                            <label for="expmonth">Mês de expiração</label>
+                            <input type="text" id="expmonth" name="expmonth" >
+                            <div class="row">
+                              <div class="col-50">
+                                <label for="expyear">Ano de expiração</label>
+                                <input type="text" id="expyear" name="expyear" >
+                              </div>
+                              <div class="col-50">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" >
+                              </div>
+                            </div>
+                          </div>
+                          
                         </div>
-                        <div class="col-50">
-                            <label for="zip">Código Postal</label>
-                            <input type="text" id="zip" name="zip" placeholder="10001">
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col-50">
-                        <h3>Pagamento</h3>
-                        <label for="fname" style="font-size:18px;">Cartões Aceitos</label>
-                        <div class="icon-container">
-                        <i class="fa fa-cc-visa" style="color:navy;"></i>
-                        <i class="fa fa-cc-amex" style="color:blue;"></i>
-                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                        <i class="fa fa-cc-discover" style="color:orange;"></i>
-                        <label for="fname"style="font-size:18px;">Outras Formas de Pagamento</label>
-                        <input type="radio" id="paypal" name="paypal" value="paypal">
-                        <i class="fa fa-cc-paypal" style="color:black;"></i>
-                        <input type="radio" id="multibanco" name="multibanco" value="multibanco">
-                        <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/092011/multibanco.png?itok=tVmX_vkg" style="height: 7%; width: 7%; margin-left:3px;"></i>
-                        </div>
-                        <label for="cname">Nome no Cartão</label>
-                        <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-                        <label for="ccnum">Número do Cartão</label>
-                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-                        <label for="expmonth">Mês de Vencimento</label>
-                        <input type="text" id="expmonth" name="expmonth" placeholder="September">
-
-                        <div class="row">
-                        <div class="col-50">
-                            <label for="expyear">Ano de Vencimento</label>
-                            <input type="text" id="expyear" name="expyear" placeholder="2018">
-                        </div>
-                        <div class="col-50">
-                            <label for="cvv">CVV</label>
-                            <input type="text" id="cvv" name="cvv" placeholder="352">
-                        </div>
-                        </div>
-                    </div>
-
-                    </div>
-                    <label>
-                    <input type="checkbox" checked="checked" name="sameadr"> Morada de entrega igual a de cobrança
-                    </label>
-                    <input type="submit" value="COMPRAR!" class="btn">
-                </form>
+                        
+                        <input type="submit" value="Realizar Pagamento" class="btn" onclick="pagar()"><!----tentar alinhar botão-->
+                      </form>
                 </div>
             </div>
 
             <div class="col-25">
                 <div class="container">
-                <h4>Carrinho
-                    <span class="price" style="color:black">
-                    <i class="fa fa-shopping-cart"></i>
-                    <b>4</b>
-                    </span>
-                </h4>
-                <p><a href="#">Ingresso 1 (adulto) </a> <span class="price">10€</span></p>
-                <p><a href="#">Ingresso 2 (adulto) </a> <span class="price">10€</span></p>
-                <p><a href="#">Ingresso 3 (adulto) </a> <span class="price">10€</span></p>
-                <p><a href="#">Ingresso 4 (infantil) </a> <span class="price">5€</span></p>
-                <hr>
-                <p>Total <span class="price" style="color:black"><b>$35</b></span></p>
+                
+               
+                <p>Total: <span class="price" style="color:black"><b id="total">0€</b></span></p>
                 </div>
             </div>
         </div>
@@ -233,5 +216,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/formulario.js"></script>
     <script src="js/login1.js"></script>
+    <script src="js/checkout.js"></script>
 </body>
 </html>
+~~if(temp=="l" || temp==null){
+    document.querySelector("#bnt").textContent="Login/Registar";
+    console.log("3");
+    
+}
