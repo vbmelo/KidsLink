@@ -25,11 +25,22 @@ $('#myModalLogin').on('show.bs.modal', function (e) {
     console.log(document.querySelector("#bnt").textContent=="Logout");
     if(document.querySelector("#bnt").textContent=="Logout") {
         console.log("56");
-        window.location="index.html";
+        window.location="testing.html";
         localStorage.setItem("mail_l",JSON.stringify("l"));
         
     }  
   });
+
+
+
+
+function update(){
+
+
+
+}
+
+    
 
 var loginBox = document.getElementById("login");
 var regBox = document.getElementById("register");
@@ -168,7 +179,7 @@ function login(){
         return ;
     }
     else {
-        alert("Bem vindo "+email+".");
+        alert(email + "Bem vindo.");
         localStorage.setItem("mail_l",JSON.stringify(email));
         
 
@@ -190,7 +201,21 @@ function login(){
 
         document.getElementById("se").value ="";
         document.getElementById("sp").value="";
-        window.location = window.location.href;
+        window.location = "testing.html";
         return ;
     }
+}
+
+function check(){
+
+
+
+
+
+
+
+
+
+
+
 }

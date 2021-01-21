@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Kids link - Entregáveis</title>
+    <title>Kids link - Duvidas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,6 +14,7 @@
 
 
 <body>
+    
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,1);">
         <div class="container-fluid">
@@ -37,16 +38,16 @@
                         <a class="nav-link" href="joinus.html">Junte-se a nós!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="equipa.html">Equipa</a>
+                        <a class="nav-link " href="equipa.html">Equipa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Eventos.html">Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-item active"  aria-current="page" href="entregaveis.html">Entregáveis</a>
+                        <a class="nav-link" href="entregaveis.html">Entregáveis</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="duvidas.html">Dúvidas</a>
+                        <a class="nav-link nav-item active" aria-current="page" href="duvidas.html">Dúvidas</a>
                     </li>
                 </ul>
             </div>
@@ -57,36 +58,45 @@
     
     <div class="hero-image">
         <div class="hero-text"> 
-            <h1 style="font-size: 100px">Entregáveis</h1>
+            <h1 style="font-size: 100px">Dúvidas</h1>
         </div>
     </div>
     <!--Conteudo-->
     <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-        <h1 style="font-size:36px;">GRUPO 403</h1>
+        <h1 style="font-size:36px;">Tem alguma duvida ou sugestão? diga-nos aqui!</h1>
+        <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
     </div>
     <div class="container">
-        <ul class="list-group">
-            <li class="list-group-item active" style="background-color:  #8d29a1; border: 1px solid #8d29a1; margin:15px;">
-                <p style="font-size:18px;">Relatórios</p>
-                <ol type="1">
-                    <li><a href="https://drive.google.com/file/d/1G9RZtvrHcUcnTVT-1_LXY3RE0mxGFIZI/view" style="color: rgb(255, 255, 255);">Relatório Técnico: Visão</a></li>
-                    <li><a href="https://drive.google.com/file/d/1HYAGVdILGP6JxPKmLTVt7nVeVlDIFlUR/view?usp=sharing" style="color: rgb(255, 255, 255);">Relatório Técnico: Análise de Requisitos</a></li>
-                </ol>
-            </li>
-            <li class="list-group-item active" style="background-color:  #8d29a1; border: 1px solid #8d29a1; margin:15px;">
-                <p style="font-size:18px;">Apresentações</p>
-                            <ol type="1">
-                    <li><a href="https://drive.google.com/file/d/1AaImRhYHl_7AAUoYMtL5ZZFGXpWUKhO8/view" style="color: rgb(255, 255, 255);">Aprentação 1</a></li>
-                    <li><a href="https://drive.google.com/file/d/1K7Nyo_1bybbUrhtyOa7jiboAr2UDuWm-/view?usp=sharing" style="color: rgb(255, 255, 255);">Aprentação 2</a></li>
-                </ol>
-            </li>
-            <li class="list-group-item active" style="background-color:  #8d29a1; border: 1px solid #8d29a1; margin:15px;">
-                <p style="font-size:18px;">Protótipo exploratório</p>
-                <ol type="1">
-                    <li><a href="https://marvelapp.com/prototype/27bd4gjg/screen/75790137" style="color: rgb(255, 255, 255);">Link</a></li>
-                </ol>
-            </li>
-        </ul>
+        <div class="row image-grid">
+    </div>
+    <!--formulario-->
+    <div class="container">
+        <form id="form_id" method="post" name="myform">
+            <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                <label for="Nome" class="col-md-2 col-form-label">E-mail:</label>
+                <div class="col-md-10">
+                    <input type="text" name="mail" id="mail" class="form-control" placeholder=" seu e-mail"/>
+                </div>
+            </div>
+            <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                <label for="Morada" class="col-md-2 col-form-label">Nome:</label>
+                <div class="col-md-10">
+                    <textarea name="nome" id="nome" class="form-control" rows="1" placeholder="Seu Nome"></textarea>
+                </div>
+            </div>
+            <div class="row form-group" style="margin-top:25px; margin-bottom:25px;">
+                <label class="col-md-2 col-form-label">Duvida/sugestão:</label>
+                <div class="col-md-10">
+                    <input type="text" name="texto" id="texto" class="form-control" placeholder="diga-nos o que penssa" required />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-10 offset-md-2">
+                    <input type="submit" name="submitBtn" value="Submit" class="btn btn-primary" onclick="guardar()" />
+                    <input type="reset" name="resetBtn" value="Limpar" class="btn btn-secondary" />
+                </div>
+            </div>
+        </form>
     </div>
     <!--formulario-->
     <!--
@@ -99,13 +109,12 @@
         <p style="text-align: center; font-style: italic; font-size: 18px">Entre em contato pelo e-mail kidslink@gmail.com para saber mais sobre o projeto</p>
     </div>
     -->
-
      <!-- Modal -->
      <div class="modal fade" id="myModalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login / Registro</h5>
+                <h5 class="modal-title" id="gg">Login / Registro</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -155,11 +164,8 @@
             </div>
         </div>
         </div>
-    
-        <div class="container" style="text-align: center; font-style: bold; padding:50px;">
-            <h1 style="font-size: 24px;"><a href="duvidas.html">Dúvidas?</a></h1>
-            <p style="text-align: center; font-style: italic; font-size: 18px">Entre em contato pelo e-mail kidslinkpt@gmail.com para saber mais sobre o projeto</p>
-        </div>
+
+
     <!--Footer-->
     <div class="container">
     <div class="Footer" style="font-style: bold; text-align: center; padding: 25px;">
@@ -170,7 +176,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/formulario.js"></script>
-<script src="js/login1.js"></script>
+<script src="js/testing.js"></script>
 </body>
 </html>
