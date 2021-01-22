@@ -254,6 +254,19 @@ function confirma2(){
 
 
 }
+
+function confirma3(){
+    console.log("enta");
+    if(user==0){
+        alert("Necessita de criar conta ou registar-se");
+
+    }
+    else{
+        window.location="comprarfesta2.html";
+        }
+
+
+}
 function update(){
 
     document.getElementById("change").innerHTML = JSON.parse(localStorage.getItem("mail_l"));

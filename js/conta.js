@@ -49,7 +49,9 @@ function listar_pendente(){
               <td id="Ser_Lista"><ul id="l${contadorRow}"></ul></td><br />
               <td id="orcamento">${ArrayFesta[i + 20]}</td><br />
               <br /><td id="Orcamento_Lista">
-                  <button type="button" class="button btn-primary" onClick="pagar('${ArrayFesta[i]}')">Pagar</button></td></tr>`);
+                  <button type="button" class="button btn-primary" onClick="pagar('${ArrayFesta[i]}')">Pagar</button>
+              <td id="Orcamento_Lista">
+                  <button type="button" class="button btn-primary" onClick="remover('${ArrayFesta[i]}')">Não aceito</button></td></tr>`);
                   if (ArrayFesta[i + 9] != "") { $(`#l${contadorRow}`).append("<li>Pintor Facial</li>"); }
                   if (ArrayFesta[i + 10] != "") { $(`#l${contadorRow}`).append('<li>Musica</li>'); }
                   if (ArrayFesta[i + 11] != "") { $(`#l${contadorRow}`).append('<li>Magico</li>'); }
@@ -72,7 +74,7 @@ function listar_pendente(){
     
   }
   if(temp>0){return;}//retorna para poder mostar
-  else{$("#Table_Festas_Pendestes").hide();}//esconde caso não haja festa com estado
+ // else{$("#Table_Festas_Pendestes").hide();}//esconde caso não haja festa com estado
   
 
   
@@ -195,3 +197,28 @@ function pagar(id){
   window.location="checkout.html";
 }
 //estados para festas: sem orcamento,com orcamento,paga
+
+
+
+function remover(id){
+  var id_festa=id;
+  
+  var festa=JSON.parse(localStorage.getItem("festa"));
+ 
+  //atualizar estado da festa
+  for(var i=0; i<festa.length;i+=21){
+    if(festa[i]==id_festa){
+      festa[i+19]="negada"; 
+      console.log("update?");
+      localStorage.setItem("festa",JSON.stringify(festa));
+      localStorage.setItem("festa_orcamentada",JSON.stringify(festa));
+      break;
+    }
+    
+
+  }
+  window.location="conta.html";
+
+
+
+}
