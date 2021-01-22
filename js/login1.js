@@ -11,27 +11,28 @@ if(localStorage.getItem("mail")==null){
 
 var user=JSON.parse(localStorage.getItem("tipo_u"));
 
-if(localStorage.getItem("tipo_u")=="1"){
+if(user==1){
     
     
     document.getElementById("org").style.display = "none";
     document.getElementById("admin").style.display = "none";
  }
 
-if(localStorage.getItem("tipo_u")=="2"){
+if(user==2){
     console.log("entra2")
     document.getElementById("conta").style.display = "none";
     document.getElementById("admin").style.display = "none";
  }
 
-if(localStorage.getItem("tipo_u")=="3"){
+if(user==3){
     
     document.getElementById("conta").style.display = "none";
     document.getElementById("org").style.display = "none";
     
  }
- if(localStorage.getItem("tipo_u")=="0"){
-    
+ console.log(user);
+ if(user==0){
+    console.log("ut0");
     document.getElementById("conta").style.display = "none";
     document.getElementById("org").style.display = "none";
     document.getElementById("admin").style.display = "none";
