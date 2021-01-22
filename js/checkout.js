@@ -23,6 +23,13 @@ function pagar(){
     var festa_paga=[];
     //actualizar arrays de festas
     for(var i=0; i<festa_or.length;i+=21){
+        if(festa_or[i]==dados[4]){
+            festa_or[i+19]="paga";
+            localStorage.setItem("festa_orcamentada",JSON.stringify(festa_or));
+            break;
+        }        
+    }
+    for(var i=0; i<festa.length;i+=21){
         if(festa[i]==dados[4]){
             festa[i+19]="paga";
             localStorage.setItem("festa",JSON.stringify(festa));
@@ -61,6 +68,7 @@ function pagar(){
         }
     }
     console.log(festa_paga);
-   alert("Obrigado por escolher a KidsLink!")
+   
    window.location="index.html";
+   alert("Obrigado por escolher a KidsLink!")
 }

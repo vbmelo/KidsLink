@@ -1,238 +1,211 @@
-var a=[1,2,3];
-console.log(a);
-a.splice(1);
-console.log(a);
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(localStorage.getItem("mail")==null){
-    localStorage.setItem("mail",JSON.stringify(["cliente@gmail.com","organizador@gmail.com","administrador@gmail.com","t"]));
-    localStorage.setItem("pass",JSON.stringify(["cli","org","admin","t"]));
-    localStorage.setItem("tipo_u","1");
-    localStorage.setItem("mail_l",JSON.stringify("l"));
-    
+if(localStorage.getItem("festa_temp")==null)
+{
+  var festa_temp=[];
+  localStorage.setItem("festa_temp",JSON.stringify(festa_temp));
 }
-
-var temp = JSON.parse(localStorage.getItem("mail_l"));
-if(temp=="l" || temp==null){
-    document.querySelector("#bnt").textContent="Login/Registar";
-    console.log("3");
-    
-}
-else{
-    document.querySelector("#bnt").textContent="Logout";
-    console.log("1");
-    
-
-}
-
-$('#myModalLogin').on('show.bs.modal', function (e) {
-    console.log("55");
-    var button = e.relatedTarget;
-    console.log(document.querySelector("#bnt").textContent=="Logout");
-    if(document.querySelector("#bnt").textContent=="Logout") {
-        console.log("56");
-        window.location="testing.html";
-        localStorage.setItem("mail_l",JSON.stringify("l"));
-        
-    }  
-  });
-
 
 
 
 function update(){
 
-
-
+document.querySelector("#change").textContent=JSON.parse(localStorage.getItem("mail_l"));
 }
 
+document.getElementById("defaultOpen").click();
+
+function display(evt, tabela) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabela).style.display = "block";
+  evt.currentTarget.className += " active";
+
+  
+}
+
+
+
+function listar(){
+  var ArrayFesta =JSON.parse(localStorage.getItem("festa_orcamentada"));
+  var temp=0;
+
+  for(var i=0; i<ArrayFesta.length;i+=21){
+    console.log(i)
+    console.log(ArrayFesta[i+17]==JSON.parse(localStorage.getItem("mail_l")));
+    console.log(ArrayFesta[i+19]);
+    if(ArrayFesta[i+17]==JSON.parse(localStorage.getItem("mail_l")) && ArrayFesta[i+19]=="com orcamento"){
+      temp++;
+      $("#Table_Festas_Pendestes").show();
+      //lista festa
+
+      //var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
+   
+    if (ArrayFesta.length >= 21) {
+        var i = 0;
+        $.each(ArrayFesta, function () {
+            if (i >= ArrayFesta.length) {
+
+                return;
+            }
+
+            if(ArrayFesta[i+19]=="com orcamento" )
+            {
+             
+                $("#tbody_Lista").append(`
+              <tr id="Tr_Lista"><br />
+              <th scope="row">${contadorRow}</th><br />
+              <td id="Nome_Lista">${ArrayFesta[i + 1]}</td><br />
+              <td id="Morada_Lista">${ArrayFesta[i + 2]}</td><br />
+              <td id="Data_Lista">${ArrayFesta[i + 3]}</td><br />
+              <td id="Hora_inicio_Lista">${ArrayFesta[i + 4]}</td><br />
+              <td id="Hora_fim_Lista">${ArrayFesta[i + 5]}</td><br />
+              <td id="Pessoas_Lista">${ArrayFesta[i + 6]}</td><br />
+              <td id="Tema_Lista">${ArrayFesta[i + 7]}</td><br />
+              <td id="Espaço_Lista">${ArrayFesta[i + 8]}</td><br />
+              <td id="Ser_Lista"><ul id="l${contadorRow}"></ul></td><br />
+              <td id="orcamento">${ArrayFesta[i + 20]}</td><br />
+              <br /><td id="Orcamento_Lista">
+                  <button type="button" class="button btn-primary" onClick="pagar('${ArrayFesta[i]}')">Pagar</button></td></tr>`);
+                  if (ArrayFesta[i + 9] != "") { $(`#l${contadorRow}`).append("<li>Pintor Facial</li>"); }
+                  if (ArrayFesta[i + 10] != "") { $(`#l${contadorRow}`).append('<li>Musica</li>'); }
+                  if (ArrayFesta[i + 11] != "") { $(`#l${contadorRow}`).append('<li>Magico</li>'); }
+                  if (ArrayFesta[i + 12] != "") { $(`#l${contadorRow}`).append('<li>Palhaço</li>'); }
+                  if (ArrayFesta[i + 13] != "") { $(`#l${contadorRow}`).append('<li>Castelo Saltitante</li>'); }
+                  if (ArrayFesta[i + 14] != "") { $(`#l${contadorRow}`).append('<li>Escorrega</li>'); }
+                  if (ArrayFesta[i + 15] != "") { $(`#l${contadorRow}`).append('<li>Convites</li>'); }
+                  if (ArrayFesta[i + 16] != "") { $(`#l${contadorRow}`).append('<li>Catering</li>'); }
+                  $('[name="orcamentoBox"]').attr("id");// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
+
+              contadorRow += 1;
+            }
+          i += 21;
+        });
+    }
+
+
+
+    }
     
+  }
+  if(temp>0){return;}//retorna para poder mostar
+  else{$("#Table_Festas_Pendestes").hide();}//esconde caso não haja festa com estado
+  
 
-var loginBox = document.getElementById("login");
-var regBox = document.getElementById("register");
-var forgetBox = document.getElementById("forgot");
+  
 
-var loginTab = document.getElementById("lt");
-var regTab = document.getElementById("rt");
-
-
-
-
-function regTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="visible";
-    loginBox.style.visibility="hidden";
-    forgetBox.style.visibility="hidden";
-
-    regTab.style.backgroundColor="rgb(12, 132, 189)";
-    loginTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-}
-function loginTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="hidden";
-    loginBox.style.visibility="visible";
-    forgetBox.style.visibility="hidden";
-
-    loginTab.style.backgroundColor="rgb(12, 132, 189)";
-    regTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-}
-function forTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="hidden";
-    loginBox.style.visibility="hidden";
-    forgetBox.style.visibility="visible";
-
-    regTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-    loginTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
 
 }
+function pagar(id){
 
+  var id_festa=id;
+  console.log(id_festa);
+  festa_or=JSON.parse(localStorage.getItem("festa_orcamentada"));
 
+  for(var i=0; i<festa_or.length;i+=21){
+    if(festa_or[i]==id_festa){
+      nome=festa_or[i+1]; 
+      morada=festa_or[i+2];
+      email=festa_or[i+17];
+      valor=festa_or[i+20];
+      console.log("update?");
+      var info=[];
+      info.push(nome);
+      info.push(morada);
+      info.push(email);
+      info.push(valor);
+      info.push(id_festa);
 
+      console.log(info);
 
-function register(){
-    event.preventDefault();
-    var emailArray=JSON.parse(localStorage.getItem("mail"));
-    var passwordArray=JSON.parse(localStorage.getItem("pass"));
-    var email = document.getElementById("re").value;
-    var password = document.getElementById("rp").value;
-    var passwordRetype = document.getElementById("rrp").value;
-
-    if (email == ""){
-        alert("Email necessario.");
-        return ;
+      localStorage.setItem("festa_temp",JSON.stringify(info));
+      break;
     }
-    else if (password == ""){
-        alert("Password necessario.");
-        return ;
-    }
-    else if (passwordRetype == ""){
-        alert("Password necessario.");
-        return ;
-    }
-    else if ( password != passwordRetype ){
-        alert("Password não são iguais.");
-        return;
-    }
-    else if(emailArray.indexOf(email) == -1){
-        emailArray.push(email);
-        passwordArray.push(password);
-        localStorage.setItem("mail",JSON.stringify(emailArray));
-        localStorage.setItem("pass",JSON.stringify(passwordArray));
-        alert(email + "  Obrigado por se registar \nTente fazer login agora");
-
-        document.getElementById("re").value ="";
-        document.getElementById("rp").value="";
-        document.getElementById("rrp").value="";
-    }
-    else{
-        alert(email + " Já se encontra registado.");
-        return ;
-    }
+   
+  } 
+  
+  window.location="checkout.html";
 }
+//estados para festas: sem orcamento,com orcamento,paga
 
 
+function listarpPago(){ ///buged não lista a tabela e aparece na inspeção do browses
 
-function forgot(){
-    event.preventDefault();
+  var ArrayFesta =JSON.parse(localStorage.getItem("festa_paga"));
+  var temp=0;
+  console.log(ArrayFesta);
+  for(var i=0; i<ArrayFesta.length;i+=21){
+   // console.log(i)
+    console.log(ArrayFesta[i+17]==JSON.parse(localStorage.getItem("mail_l")));
+    //console.log(ArrayFesta[i+19]);
+    if(ArrayFesta[i+17]==JSON.parse(localStorage.getItem("mail_l")) && ArrayFesta[i+19]=="paga"){
+      temp++;
+      $("#Table_Festas_Paga").show();
+      //lista festa
+      console.log("show");
+      //var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
+   
+    if (ArrayFesta.length >= 21) {
+        var i = 0;
+        $.each(ArrayFesta, function () {
+            if (i >= ArrayFesta.length) {
 
-    var email = document.getElementById("fe").value;
+                return;
+            }
 
-    if(emailArray.indexOf(email) == -1){
-        if (email == ""){
-            alert("Email necessario.");
-            return ;
-        }
-        alert("Email não existe.");
-        return ;
+            if(ArrayFesta[i+19]=="paga" )
+            {
+              console.log("entra");
+                $("#tbody_Lista_Paga").append(`
+              <tr id="Tr_Lista"><br />
+              <th scope="row">${contadorRow}</th><br />
+              <td id="Nome_Lista">${ArrayFesta[i + 1]}</td><br />
+              <td id="Morada_Lista">${ArrayFesta[i + 2]}</td><br />
+              <td id="Data_Lista">${ArrayFesta[i + 3]}</td><br />
+              <td id="Hora_inicio_Lista">${ArrayFesta[i + 4]}</td><br />
+              <td id="Hora_fim_Lista">${ArrayFesta[i + 5]}</td><br />
+              <td id="Pessoas_Lista">${ArrayFesta[i + 6]}</td><br />
+              <td id="Tema_Lista">${ArrayFesta[i + 7]}</td><br />
+              <td id="Espaço_Lista">${ArrayFesta[i + 8]}</td><br />
+              <td id="Ser_Lista"><ul id="ll${contadorRow}"></ul></td><br />
+              <br /><td id="Orcamento_Lista">
+                  <button type="button" class="button btn-primary" onClick="pagar('${ArrayFesta[i]}')">Pagar</button></td></tr>`);
+                  if (ArrayFesta[i + 9] != "") { $(`#ll${contadorRow}`).append("<li>Pintor Facial</li>"); }
+                  if (ArrayFesta[i + 10] != "") { $(`#ll${contadorRow}`).append('<li>Musica</li>'); }
+                  if (ArrayFesta[i + 11] != "") { $(`#ll${contadorRow}`).append('<li>Magico</li>'); }
+                  if (ArrayFesta[i + 12] != "") { $(`#ll${contadorRow}`).append('<li>Palhaço</li>'); }
+                  if (ArrayFesta[i + 13] != "") { $(`#ll${contadorRow}`).append('<li>Castelo Saltitante</li>'); }
+                  if (ArrayFesta[i + 14] != "") { $(`#ll${contadorRow}`).append('<li>Escorrega</li>'); }
+                  if (ArrayFesta[i + 15] != "") { $(`#ll${contadorRow}`).append('<li>Convites</li>'); }
+                  if (ArrayFesta[i + 16] != "") { $(`#ll${contadorRow}`).append('<li>Catering</li>'); }
+                  $('[name="orcamentoBox"]').attr("id");// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
+
+              contadorRow += 1;
+            }
+          i += 21;
+        });
     }
 
-    alert("email enviado comfirme em 24 horas. \n Obrigado");
-    document.getElementById("fe").value ="";
-}
 
 
-
-
-function login(){
-    event.preventDefault();
+    }
     
-      
-    var email = document.getElementById("se").value;
-    var password = document.getElementById("sp").value;
-    var emailArray=JSON.parse(localStorage.getItem("mail"));
-    var passwordArray=JSON.parse(localStorage.getItem("pass"));
-    var i = emailArray.indexOf(email);
-    
-
-    if(emailArray.indexOf(email) == -1){
-        if (email == ""){
-            alert("Email necessario.");
-            return;
-        }
-        alert("Email não existe.");
-        return;
-    }
-    else if(passwordArray[i] != password){
-        if (password == ""){
-            alert("Password necessario.");
-            return ;
-        }
-        alert("Password não é igual.");
-        return ;
-    }
-    else {
-        alert(email + "Bem vindo.");
-        localStorage.setItem("mail_l",JSON.stringify(email));
-        
-
-        
-
-        if(email=="organizador@gmail.com"){
-            localStorage.setItem("tipo_u","2")
-            window.location = "organizador.html";
-            return ;
-        }
-        if(email=="administrador@gmail.com"){
-            localStorage.setItem("tipo_u","3")
-            window.location = "admin.html";
-            return ;
-        }
-
-        localStorage.setItem("tipo_u","1")
+  }
+  console.log(temp);
+  if(temp>0){return;}//retorna para poder mostar
+  //else{$("#Table_Festas_Pagas").hide();}//esconde caso não haja festa com estado
 
 
-        document.getElementById("se").value ="";
-        document.getElementById("sp").value="";
-        window.location = "testing.html";
-        return ;
-    }
+  
 }
 
-function check(){
+function listarServicos(){
 
-
-
-
-
-
-
-
-
-
+  $("#Table_Festas_Servicos").show();
 
 }

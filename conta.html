@@ -14,7 +14,6 @@
 
 
 <body onload="update()">
-    <script src="js/comprarfesta.js"></script>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,1);">
         <div class="container-fluid">
@@ -73,8 +72,8 @@
     <!--Conteudo-->
     <div class="tab">
         <button class="tablinks" onclick="display(event,'fp'), listar()" id="defaultOpen">Festas Pendentes</button>
-        <button class="tablinks" onclick="display(event, 'fc')">Festas compradas</button>
-        <button class="tablinks" onclick="display(event, 'sc')">Serviços contratados</button>
+        <button class="tablinks" onclick="display(event, 'fc'), listarpPago()">Festas compradas</button>
+        <button class="tablinks" onclick="display(event, 'sc'), listarServicos()">Serviços contratados</button>
       </div>
       
       <!-- Tab content -->
@@ -98,19 +97,72 @@
                 <th scope="col">Tema</th>
                 <th scope="col">Espaço</th>
                 <th scope="col">Serviços</th>
-                <th scope="col">Orçamento</th>
                 </tr>
             </thead>
             <tbody id="tbody_Lista">
             </tbody>
         </table>
+    </div>
 
+     <!-- 2 Tab content -->
+     <div id="fc" class="tabcontent">
+        <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
+            <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
+        </div>
+        <div class="container">
+            <div class="row image-grid">
+        </div>
+       
+        <table class="table" id="Table_Festas_Paga" style="display: none;">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Morada</th>
+                <th scope="col">Data</th>
+                <th scope="col">hora inicio</th>
+                <th scope="col">Hora fim</th>
+                <th scope="col">Pessoas</th>
+                <th scope="col">Tema</th>
+                <th scope="col">Espaço</th>
+                <th scope="col">Serviços</th>
+                <th scope="col">Orçamento</th>
+                </tr>
+            </thead>
+            <tbody id="tbody_Lista_Paga">
+            </tbody>
+        </table>
+    </div>
+    
 
-
-
-
-
-
+     <!-- Tab content -->
+     <div id="sc" class="tabcontent">
+        <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
+            <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
+        </div>
+        <div class="container">
+            <div class="row image-grid">
+        </div>
+        <p>ola</p>
+        <table class="table" id="Table_Festas_Servicos" style="display: none;">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Morada</th>
+                <th scope="col">Data</th>
+                <th scope="col">hora inicio</th>
+                <th scope="col">Hora fim</th>
+                <th scope="col">Pessoas</th>
+                <th scope="col">Tema</th>
+                <th scope="col">Espaço</th>
+                <th scope="col">Serviços</th>
+                <th scope="col">Orçamento</th>
+                </tr>
+            </thead>
+            <tbody id="tbody_Lista_Servicos">
+            </tbody>
+        </table>
     </div>
 
 
@@ -132,17 +184,8 @@
 
 
 
- <!------------->
-  <div id="fc" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p>
-  </div>
-  
-  <div id="sc" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
-      
+
+
     <!--formulario-->
 
     

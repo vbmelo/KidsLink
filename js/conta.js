@@ -13,7 +13,7 @@ document.querySelector("#change").textContent=JSON.parse(localStorage.getItem("m
 
 document.getElementById("defaultOpen").click();
 
-function display(evt, cityName) {
+function display(evt, tabela) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -23,20 +23,20 @@ function display(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(tabela).style.display = "block";
   evt.currentTarget.className += " active";
-
-
-
-
- 
 
   
 }
+
+
+
 function listar(){
+
   var ArrayFesta =JSON.parse(localStorage.getItem("festa_orcamentada"));
   var temp=0;
-
+  var contadorRow = 0;
+  
   for(var i=0; i<ArrayFesta.length;i+=21){
     console.log(i)
     console.log(ArrayFesta[i+17]==JSON.parse(localStorage.getItem("mail_l")));
@@ -46,9 +46,9 @@ function listar(){
       $("#Table_Festas_Pendestes").show();
       //lista festa
 
-      var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
+      //var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
    
-    if (ArrayFesta.length >= 20) {
+    if (ArrayFesta.length >= 21) {
         var i = 0;
         $.each(ArrayFesta, function () {
             if (i >= ArrayFesta.length) {
@@ -59,7 +59,7 @@ function listar(){
             if(ArrayFesta[i+19]=="com orcamento" )
             {
              
-                $("#tbody_Lista").append(`
+              $("#tbody_Lista").append(`
               <tr id="Tr_Lista"><br />
               <th scope="row">${contadorRow}</th><br />
               <td id="Nome_Lista">${ArrayFesta[i + 1]}</td><br />
@@ -103,6 +103,90 @@ function listar(){
 
 
 }
+
+
+
+function listarpPago(){ ///buged não lista a tabela e aparece na inspeção do browses
+
+  var ArrayFesta =JSON.parse(localStorage.getItem("festa_paga"));
+  var temp=0;
+  var contadorRow = 0;
+  console.log(ArrayFesta);
+  for(var i=0; i<ArrayFesta.length;i+=21){
+   // console.log(i)
+    console.log(ArrayFesta[i+17]==JSON.parse(localStorage.getItem("mail_l")));
+    //console.log(ArrayFesta[i+19]);
+    if(ArrayFesta[i+17]==JSON.parse(localStorage.getItem("mail_l")) && ArrayFesta[i+19]=="paga"){
+      temp++;
+      console.log(temp);
+      $("#Table_Festas_Paga").show();
+      //lista festa
+      console.log("show");
+      //var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
+   
+    if (ArrayFesta.length >= 21) {
+        var i = 0;
+        $.each(ArrayFesta, function () {
+            if (i >= ArrayFesta.length) {
+
+                return;
+            }
+
+            if(ArrayFesta[i+19]=="paga" )
+            {
+              console.log("entra");
+                $("#tbody_Lista_Paga").append(`
+              <tr id="Tr_Lista"><br />
+              <th scope="row">${contadorRow}</th><br />
+              <td id="Nome_Lista">${ArrayFesta[i + 1]}</td><br />
+              <td id="Morada_Lista">${ArrayFesta[i + 2]}</td><br />
+              <td id="Data_Lista">${ArrayFesta[i + 3]}</td><br />
+              <td id="Hora_inicio_Lista">${ArrayFesta[i + 4]}</td><br />
+              <td id="Hora_fim_Lista">${ArrayFesta[i + 5]}</td><br />
+              <td id="Pessoas_Lista">${ArrayFesta[i + 6]}</td><br />
+              <td id="Tema_Lista">${ArrayFesta[i + 7]}</td><br />
+              <td id="Espaço_Lista">${ArrayFesta[i + 8]}</td><br />
+              <td id="Ser_Lista"><ul id="ll${contadorRow}"></ul></td><br />
+              <br /><td id="Orcamento_Lista">`);
+                 
+                  if (ArrayFesta[i + 9] != "") { $(`#ll${contadorRow}`).append("<li>Pintor Facial</li>"); }
+                  if (ArrayFesta[i + 10] != "") { $(`#ll${contadorRow}`).append('<li>Musica</li>'); }
+                  if (ArrayFesta[i + 11] != "") { $(`#ll${contadorRow}`).append('<li>Magico</li>'); }
+                  if (ArrayFesta[i + 12] != "") { $(`#ll${contadorRow}`).append('<li>Palhaço</li>'); }
+                  if (ArrayFesta[i + 13] != "") { $(`#ll${contadorRow}`).append('<li>Castelo Saltitante</li>'); }
+                  if (ArrayFesta[i + 14] != "") { $(`#ll${contadorRow}`).append('<li>Escorrega</li>'); }
+                  if (ArrayFesta[i + 15] != "") { $(`#ll${contadorRow}`).append('<li>Convites</li>'); }
+                  if (ArrayFesta[i + 16] != "") { $(`#ll${contadorRow}`).append('<li>Catering</li>'); }
+                  //$('[name="orcamentoBox"]').attr("id");// onde ta o contador row, colocar o id identificador da festa, para ser o id da textbox
+
+              contadorRow += 1;
+            }
+          i += 21;
+        });
+    }
+
+
+
+    }
+    
+  }
+  console.log(temp);
+  if(temp>0){return;}//retorna para poder mostar
+  //else{$("#Table_Festas_Pagas").hide();}//esconde caso não haja festa com estado
+
+
+  
+}
+
+function listarServicos(){
+
+  $("#Table_Festas_Servicos").show();
+
+}
+
+
+
+
 function pagar(id){
 
   var id_festa=id;
@@ -129,11 +213,6 @@ function pagar(id){
       break;
     }
    
-
- 
-
-
-
   } 
   
   window.location="checkout.html";
