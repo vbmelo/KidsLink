@@ -30,7 +30,7 @@ if(user==3){
     document.getElementById("org").style.display = "none";
     
  }
- console.log(user);
+ 
  if(user==0){
     console.log("ut0");
     document.getElementById("conta").style.display = "none";
@@ -230,14 +230,29 @@ function login(){
 }
 
 function confirma(){
-    console.log("call?");
+    
     if(user==0){
         alert("Necessita de criar conta ou registar-se");
 
     }
+    else{
+        window.location="comprarfesta.html";
+        }
 
 
 }
 
+function confirma2(){
+    console.log("enta");
+    if(user==0){
+        alert("Necessita de criar conta ou registar-se");
+
+    }
+    else{
+        window.location="comprarEventofase1.html";
+        }
+
+
+}
 
 
