@@ -10,25 +10,32 @@ if(localStorage.getItem("mail")==null){
 //o utilizador n registdo, 1 registado, 2 organizador, 3 administrados
 
 var user=JSON.parse(localStorage.getItem("tipo_u"));
-console.log(user);
 
 if(localStorage.getItem("tipo_u")=="1"){
-    console.log("entra1");
     
-    document.getElementById("conta").style.display = "none";
     
+    document.getElementById("org").style.display = "none";
+    document.getElementById("admin").style.display = "none";
  }
 
 if(localStorage.getItem("tipo_u")=="2"){
     console.log("entra2")
-    
+    document.getElementById("conta").style.display = "none";
+    document.getElementById("admin").style.display = "none";
  }
 
 if(localStorage.getItem("tipo_u")=="3"){
-    console.log("entra3")
+    
+    document.getElementById("conta").style.display = "none";
+    document.getElementById("org").style.display = "none";
     
  }
- 
+ if(localStorage.getItem("tipo_u")=="0"){
+    
+    document.getElementById("conta").style.display = "none";
+    document.getElementById("org").style.display = "none";
+    document.getElementById("admin").style.display = "none";
+ }
 
 
 var temp = JSON.parse(localStorage.getItem("tipo_u"));
