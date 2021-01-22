@@ -13,6 +13,8 @@ if(localStorage.getItem("ArrayEventos")==null){
 //5,"Lisboa","Festa de Natal","Rua do Tomas Cabral Mº19","20","60","25/12/2021","15:00","19:00",
 //6,"Lisboa","Festa de Páscoa","Rua da Sossego Mº99","10","20","4/4/2021","15:00","19:00"
 
+//id,regiao, Tipo de festa(nome),morada, preço, lugares, data, hora i, hora f
+
 function ListarEvento() { //quando construindo os eventos colocar ArrayEventos[i] como id das radio boxes 
     var x = document.getElementById("mySelect").value;
     var ArrayEventos=JSON.parse(localStorage.getItem("ArrayEventos"));
@@ -34,10 +36,20 @@ function ListarEvento() { //quando construindo os eventos colocar ArrayEventos[i
         }
     }
 
-
-
+console.log(x);
+ document.getElementById("listar").innerHTML = "cidade: " + x;
 
 }
+
+
+
+
+
+
+
+
+
+
 
 function guardar(){
     if(localStorage.getItem("ArrayEventos")==null){
@@ -64,5 +76,7 @@ function guardar(){
     DadosCompra.push(nome,email,adultos,preco_a,crianca,preco_c,preco_f,id_festa);//ordem :nome, mail, nº adultos, preço dos bilhetes para adulto, nº criança, preço dos bilhetes, preço total da compra e 
     //id do evento para depois actualizar as vagas
     localStorage.setItem("DadosCompra",JSON.stringify(DadosCompra));//dados compra guardados para ser usados no check out
+    
+    window.location="checkout.html"
 
 }
