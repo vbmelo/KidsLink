@@ -229,7 +229,15 @@ function login(){
     }
 }
 
+function confirma(){
+    console.log("call?");
+    if(user==0){
+        alert("Necessita de criar conta ou registar-se");
 
+    }
+
+
+}
 
 
 
