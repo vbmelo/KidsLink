@@ -1,33 +1,59 @@
+
+
 if(localStorage.getItem("mail")==null){
     localStorage.setItem("mail",JSON.stringify(["cliente@gmail.com","organizador@gmail.com","administrador@gmail.com","t"]));
     localStorage.setItem("pass",JSON.stringify(["cli","org","admin","t"]));
-    localStorage.setItem("tipo_u","1");
+    localStorage.setItem("tipo_u","0");
     localStorage.setItem("mail_l",JSON.stringify("l"));
     
 }
+//o utilizador n registdo, 1 registado, 2 organizador, 3 administrados
 
-var temp = JSON.parse(localStorage.getItem("mail_l"));
-if(temp=="l" || temp==null){
-    document.querySelector("#bnt").textContent="Login/Registar";
-    console.log("3");
+var user=JSON.parse(localStorage.getItem("tipo_u"));
+console.log(user);
+
+if(localStorage.getItem("tipo_u")=="1"){
+    console.log("entra1");
     
+    document.getElementById("conta").style.display = "none";
+    
+ }
+
+if(localStorage.getItem("tipo_u")=="2"){
+    console.log("entra2")
+    
+ }
+
+if(localStorage.getItem("tipo_u")=="3"){
+    console.log("entra3")
+    
+ }
+ 
+
+
+var temp = JSON.parse(localStorage.getItem("tipo_u"));
+
+if(temp=="0" || temp==null){
+    document.querySelector("#bnt").textContent="Login/Registar";
+           
 }
-else{
+else if(temp=="1" ||temp=="2" ||temp=="3"){
     document.querySelector("#bnt").textContent="Logout";
     
-    
-
 }
 
+
+
+
 $('#myModalLogin').on('show.bs.modal', function (e) {
-    console.log("55");
+    
     var button = e.relatedTarget;
     console.log(document.querySelector("#bnt").textContent=="Logout");
     if(document.querySelector("#bnt").textContent=="Logout") {
-        console.log("56");
+        
         window.location="index.html";
         localStorage.setItem("mail_l",JSON.stringify("l"));
-        
+        localStorage.setItem("tipo_u",JSON.stringify("0"));
     }  
   });
 
@@ -194,3 +220,8 @@ function login(){
         return ;
     }
 }
+
+
+
+
+

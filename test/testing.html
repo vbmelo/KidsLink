@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Kids link - conta</title>
+    <title>Kids link - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -25,8 +25,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="margin-left: 100px;">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Página Inicial</a>
+                    <li class="nav-item+hide">
+                        <a class="nav-link active" aria-current="page" href="index.html">Página Inicial</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="conta.html">Conta</a>
@@ -34,246 +34,221 @@
                     <li class="nav-item">
                         <a class="nav-link" href="servicos.html">Serviços</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a class="nav-link" href="Festa.html">Comprar uma Festa!</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="joinus.html">Junte-se a nós!</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="equipa.html">Equipa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Eventos.html">Eventos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="entregaveis.html">Entregáveis</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span style="margin-right:0px">Mais<span> </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="joinus.html">Junte-se a nós!</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="equipe.html">Equipa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="entregaveis.html">Entregáveis</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="duvidas.html">Dúvidas</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="duvidas.html">Dúvidas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.html">Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-item active" aria-current="page" href="organizador.html">Organizador</a>
-                    </li>
+                   
                 </ul>
             </div>
         </div>
         </nav>
     </header>
     <!-- Banner -->
-    
-    <div class="hero-image">
-        <div class="hero-text"> 
-            <h1 style="font-size: 100px"id="change" onload="">Organizador</h1>
-        </div>
-    </div>
-    <!--Conteudo-->
-    <div class="tab">
-        <button class="tablinks" onclick="display(event,'fp'), listar()" id="defaultOpen">Festas Pendentes</button>
-        <button class="tablinks" onclick="display(event, 'fc'), listarpPago()">Festas compradas</button>
-        <button class="tablinks" onclick="display(event, 'sc'), listarServicos()">Serviços contratados</button>
-      </div>
-      
-      <!-- Tab content -->
-    <div id="fp" class="tabcontent">
-        <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-            <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
-        </div>
-        <div class="container">
-            <div class="row image-grid">
-        </div>
-        <table class="table" id="Table_Festas_Pendestes" style="display: none;">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Morada</th>
-                <th scope="col">Data</th>
-                <th scope="col">hora inicio</th>
-                <th scope="col">Hora fim</th>
-                <th scope="col">Pessoas</th>
-                <th scope="col">Tema</th>
-                <th scope="col">Espaço</th>
-                <th scope="col">Serviços</th>
-                </tr>
-            </thead>
-            <tbody id="tbody_Lista">
-            </tbody>
-        </table>
-    </div>
-
-     <!-- 2 Tab content -->
-     <div id="fc" class="tabcontent">
-        <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-            <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
-        </div>
-        <div class="container">
-            <div class="row image-grid">
-        </div>
-       
-        <table class="table" id="Table_Festas_Paga" style="display: none;">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Morada</th>
-                <th scope="col">Data</th>
-                <th scope="col">hora inicio</th>
-                <th scope="col">Hora fim</th>
-                <th scope="col">Pessoas</th>
-                <th scope="col">Tema</th>
-                <th scope="col">Espaço</th>
-                <th scope="col">Serviços</th>
-                <th scope="col">Orçamento</th>
-                </tr>
-            </thead>
-            <tbody id="tbody_Lista_Paga">
-            </tbody>
-        </table>
-    </div>
-    
-
-     <!-- Tab content -->
-     <div id="sc" class="tabcontent">
-        <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-            <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
-        </div>
-        <div class="container">
-            <div class="row image-grid">
-        </div>
-        
-        <table class="table" id="Table_Festas_Servicos" style="display: none;">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Morada</th>
-                <th scope="col">Data</th>
-                <th scope="col">hora inicio</th>
-                <th scope="col">Hora fim</th>
-                <th scope="col">Pessoas</th>
-                <th scope="col">Tema</th>
-                <th scope="col">Espaço</th>
-                <th scope="col">Serviços</th>
-                <th scope="col">Orçamento</th>
-                </tr>
-            </thead>
-            <tbody id="tbody_Lista_Servicos">
-            </tbody>
-        </table>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--formulario-->
-
-    
-    
-    <!--formulario-->
-    <!--
-    <div class="d-grid gap-2" style="padding-top:70px; padding-left:200px; padding-right:200px; padding-bottom: 70px;">
-        <button class="btn btn-primary" type="button" href="comprarFesta.html" style="background-color: #9900FF; font-style: bold;">Comprar uma Festa!</button>
-    </div>
-    </div>
-    <div class="container" style="text-align: center; font-style: bold; padding:50px;">
-        <h1 style="font-size: 24px;">Dúvidas?</h1>
-        <p style="text-align: center; font-style: italic; font-size: 18px">Entre em contato pelo e-mail kidslink@gmail.com para saber mais sobre o projeto</p>
-    </div>
-    -->
-
-     <!-- Modal -->
-     <div class="modal fade" id="myModalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login / Registro</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="hero-image">
+            <div class="hero-text">
+                <h1 style="font-size: 100px">Kids Link</h1>
+                    <p Style="font-family: 'Lato', sans-serif; font-size: 20px; color: black; font-style: italic;">O seu organizador de festas infantis!</p>
             </div>
-            <div class="modal-body">
-    
-                <div id="container">
-            <div id="tabs">
-                <p id="lt" class="tabs" onclick="loginTabFun()">Log in</p>
-                <p id="rt" class="tabs" onclick="regTabFun()">Register</p>
-    
-                <div id="clear"></div>
+                <!-- Colocar aqui o carousel -->
+                <!-- <div class="carrosel" style="padding-top: 150px; margin-right: 500px; margin-left: 500px; padding-bottom: 50px;"> -->
+            <div class="container" style="margin-bottom: 50px;">
+                <div id="carouselExampleSlidesOnly img-fluid" class="carousel slide" data-bs-ride="carousel" >
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img class="d-block w-100" src="Images\1_Portrait-of-children-sitting-at-table.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="Images\f3a3569a5dea1519a23d3a4384e76f47.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="Images\how-to-make-your-childs-birthday-party-special.jpg" alt="Third slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="Images\kids-noisemakers-at-birthday-party-getty-0220-2000.jpg" alt="Third slide">
+                        </div>
                     </div>
-    
-                    <div id="cont">
-                        <div id="login" class="comm">
-                            <h3>Sign in</h3>
-    
-                            <input id="se" type="email" placeholder="Email" required/>
-                            <input id="sp" type="password" placeholder="Password" required/>
-                            <input type="submit" onclick="login()" value="Submit"/>
-    
-                            <p onclick="forTabFun()">Forget Password?</p>
-                        </div>
-                        <div id="register" class="comm">
-                            <h3>Register</h3>
-    
-                            <input id="re" type="email" placeholder="Email" required/>
-                            <input id="rp" type="password" placeholder="Password" required/>
-                            <input id="rrp" type="password" placeholder="Re write Password" required/>
-                            <input type="submit" onclick="register()" value="Submit"/>
-    
-                        </div >
-                        <div id="forgot" class="comm">
-                        <h3>Forgot Password</h3>
-                        <div>
-                            <input id="fe" type="email" placeholder="Email" required/>
-                            <input type="submit" onclick="forgot()" value="Submit"/>
-                        </div>
-                        </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <!--Conteudo-->
+    <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 100px">
+        <h1 style="font-size:28px;">Quem somos?</h1>
+        <p style="font-size:18px; font-style:italic;margin-bottom: 150px">A Kids Link é uma empresa focada em organizar festas infantis para você! Cuidamos de toda a logística, contratações e dores de cabeça por si!<br />
+        Aqui pode-ra organizar uma festa de anos para os seus filhos facilmente, ou se desejar apenas um magico ou castelo também o podemos ajudar.</p>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card">
+                <img src="Images\856966festas_infantil2.jpg" class="card-img-top" alt="..." style="height: 422.73px;">
+                <div class="card-body">
+                    <h5 class="card-title">Locais para Festas!</h5>
+                    <p class="card-text">Disponibilizamos locais para a sua festa por todo o país</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                <img src="Images\houston+childrens+party+planner+kids+birthday+parties.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Decoração!</h5>
+                    <p class="card-text">Temos toda uma variedade de elementos decorativos e decoradores que lhe vão dar a festa dos seus sonhos</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                <img src="Images\JardimEncantado2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Catering!</h5>
+                    <p class="card-text">Temos parceiros experientes que tendo sempre por base a opinião dos clientes proporcionam os melhores buffets de qualidade diga da sua festa</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                <img src="Images\magico-palhaco-festa-infantil-aniversario-laura-1-ano-arte-e-circo-35.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Animação!</h5>
+                    <p class="card-text">Oferecemos as melhores opções de entertenimento e animação para tornar a sua festa inesquecível</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="text-align: center; font-style: bold; font-size: 36px;">
+        <p>As Nossas Festas mais vendidas</p>
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top:70px;">
+            <div class="col">
+                <div class="card h-100">
+                <img src="Images\festa minnie.jpg" class="card-img-top" alt="festa_minnie" style="height:228px;">
+                <div class="card-body">
+                    <h5 class="card-title">Festa Minnie Mouse</h5>
+                    <p class="card-text">Uma das festas mais vendidas!</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                <img src="Images\festa fortnite.jpg" class="card-img-top" alt="festa_fortnite" style="height:228px;">
+                <div class="card-body">
+                    <h5 class="card-title">Festa Fortnite Battle Royale</h5>
+                    <p class="card-text">A festa preferida dos garotos!</p>
+                </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                <img src="Images\festa bob esponja.jpg" class="card-img-top" alt="festa_bob_esponja" style="height:228px;">
+                <div class="card-body">
+                    <h5 class="card-title">Festa Bob Esponja</h5>
+                    <p class="card-text">Uma viagem à Fenda do Bikini!</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    <div class="d-grid gap-2" style="padding-top:70px; padding-left:200px; padding-right:200px; padding-bottom: 70px;">
+        <button class="btn btn-primary" type="button" href="comprarFesta.html" style="background-color: #8d29a1; font-style: bold;"><a href="comprarFesta.html">Comprar uma Festa!</a></button>
+    </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login / Registro</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div id="container">
+        <div id="tabs">
+            <p id="lt" class="tabs" onclick="loginTabFun()">Log in</p>
+            <p id="rt" class="tabs" onclick="regTabFun()">Register</p>
+
+            <div id="clear"></div>
+                </div>
+
+                <div id="cont">
+                    <div id="login" class="comm">
+                        <h3>Sign in</h3>
+
+                        <input id="se" type="email" placeholder="Email" required/>
+                        <input id="sp" type="password" placeholder="Password" required/>
+                        <input type="submit" onclick="login()" value="Submit"/>
+
+                        <p onclick="forTabFun()">Forget Password?</p>
+                    </div>
+                    <div id="register" class="comm">
+                        <h3>Register</h3>
+
+                        <input id="re" type="email" placeholder="Email" required/>
+                        <input id="rp" type="password" placeholder="Password" required/>
+                        <input id="rrp" type="password" placeholder="Re write Password" required/>
+                        <input type="submit" onclick="register()" value="Submit"/>
+
+                    </div >
+                    <div id="forgot" class="comm">
+                    <h3>Forgot Password</h3>
+                    <div>
+                        <input id="fe" type="email" placeholder="Email" required/>
+                        <input type="submit" onclick="forgot()" value="Submit"/>
+                    </div>
                     </div>
                 </div>
-    
-    
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-            </div>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
         </div>
-    
-        <div class="container" style="text-align: center; font-style: bold; padding:50px;">
-            <h1 style="font-size: 24px;"><a href="duvidas.html">Dúvidas?</a></h1>
-            <p style="text-align: center; font-style: italic; font-size: 18px">Entre em contato pelo e-mail kidslinkpt@gmail.com para saber mais sobre o projeto</p>
-        </div>
+    </div>
+    </div>
+
+    <div class="container" style="text-align: center; font-style: bold; padding:50px;">
+        <h1 style="font-size: 24px;"><a href="duvidas.html">Dúvidas?</a></h1>
+        <p style="text-align: center; font-style: italic; font-size: 18px">Entre em contato pelo e-mail kidslinkpt@gmail.com para saber mais sobre o projeto</p>
+    </div>
     <!--Footer-->
     <div class="container">
     <div class="Footer" style="font-style: bold; text-align: center; padding: 25px;">
        <p> e-mail:kidslinkpt@gmail.com  |   Endereço:Rua do parque da diversão Nº3059   |  Contacto:956145752 </p>
     </div>
     </div>
-
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/testing.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="js/login1.js"></script>
 </body>
 </html>
