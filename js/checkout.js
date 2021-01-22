@@ -5,17 +5,28 @@ if(localStorage.getItem("festa_paga")==null)
 }
 
 
-var dados=JSON.parse(localStorage.getItem("festa_temp"));
+
+    var dados=JSON.parse(localStorage.getItem("festa_temp"));
+
+   
 
 
-document.getElementById("nome").value = dados[0];
-document.getElementById("morada").value = dados[1];
-document.getElementById("email").value = dados[2];
-document.getElementById("total").innerHTML = dados[3]+"€";
+    document.getElementById("nome").value = dados[0];
+    document.getElementById("morada").value = dados[1];
+    document.getElementById("email").value = dados[2];
+    document.getElementById("total").innerHTML = dados[3]+"€";
 //console.log(dados[4]);
 
 //nome,morada,mail,valor,id_festa
 //estados para festas: sem orcamento,com orcamento,paga
+
+
+   
+        
+
+
+
+
 
 function pagar(){
     var festa=JSON.parse(localStorage.getItem("festa"));
@@ -67,8 +78,16 @@ function pagar(){
             break;
         }
     }
-    console.log(festa_paga);
-   
+    var temp=[];
+    localStorage.setItem("festa_temp",JSON.stringify(temp));
+    
+
    window.location="index.html";
    alert("Obrigado por escolher a KidsLink!")
+
+   
+
+
+
+
 }

@@ -43,16 +43,21 @@ console.log(x);
 
 
 function guardarsimples(){
+    var temp=[];
 
    var preco= document.querySelector('input[type=radio]:checked').id;
-   var adultos = document.getElementById("adulto").value;
+   var adulto = document.getElementById("adulto").value;
    var crianca = document.getElementById("crianca").value;
    var nome = document.getElementById("nome").value;
    var email= document.getElementById("email").value;
-   console.log(preco);
-   console.log(adultos);
-   console.log(crianca);
-   console.log(nome);
+   var total=(adulto*preco)+(crianca*preco);
+   var morada="";
+    temp.push(nome,morada,email,total);//morada vazia para n dar conflit no checkout
+    console.log(temp)
+    localStorage.setItem("festa_temp",JSON.stringify(temp));
+    
+    window.location="checkout.html";
+
 }
 
 
