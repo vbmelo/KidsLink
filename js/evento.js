@@ -15,7 +15,7 @@ if(localStorage.getItem("ArrayEventos")==null){
 
 //id,regiao, Tipo de festa(nome),morada, preço, lugares, data, hora i, hora f
 
-function ListarEvento() { //quando construindo os eventos colocar ArrayEventos[i] como id das radio boxes 
+function ListarEvento() { //quando construindo os eventos colocar ArrayEventos[i] como id das radio boxes //se der....
     var x = document.getElementById("mySelect").value;
     var ArrayEventos=JSON.parse(localStorage.getItem("ArrayEventos"));
    console.log(ArrayEventos);
@@ -42,6 +42,18 @@ console.log(x);
 }
 
 
+function guardarsimples(){
+
+   var preco= document.querySelector('input[type=radio]:checked').id;
+   var adultos = document.getElementById("adulto").value;
+   var crianca = document.getElementById("crianca").value;
+   var nome = document.getElementById("nome").value;
+   var email= document.getElementById("email").value;
+   console.log(preco);
+   console.log(adultos);
+   console.log(crianca);
+   console.log(nome);
+}
 
 
 
@@ -51,7 +63,17 @@ console.log(x);
 
 
 
-function guardar(){
+
+
+
+
+
+
+
+
+
+
+function guardar(){///não uso
     if(localStorage.getItem("ArrayEventos")==null){
         var DadosCompra = [];                 
         localStorage.setItem("DadosCompra",JSON.stringify(DadosCompra));
@@ -76,7 +98,7 @@ function guardar(){
     DadosCompra.push(nome,email,adultos,preco_a,crianca,preco_c,preco_f,id_festa);//ordem :nome, mail, nº adultos, preço dos bilhetes para adulto, nº criança, preço dos bilhetes, preço total da compra e 
     //id do evento para depois actualizar as vagas
     localStorage.setItem("DadosCompra",JSON.stringify(DadosCompra));//dados compra guardados para ser usados no check out
-    
+
     window.location="checkout.html"
 
 }
