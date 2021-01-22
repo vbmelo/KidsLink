@@ -6,32 +6,8 @@ if(localStorage.getItem("festa_temp")==null)
 
 
 
-function update(){
 
-document.querySelector("#change").textContent=JSON.parse(localStorage.getItem("mail_l"));
-}
-
-document.getElementById("defaultOpen").click();
-
-function display(evt, tabela) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(tabela).style.display = "block";
-  evt.currentTarget.className += " active";
-
-  
-}
-
-
-
-function listar(){
+function listar_pendente(){
 
   var ArrayFesta =JSON.parse(localStorage.getItem("festa_orcamentada"));
   var temp=0;
@@ -119,7 +95,7 @@ function listarpPago(){ ///buged não lista a tabela e aparece na inspeção do 
     if(ArrayFesta[i+17]==JSON.parse(localStorage.getItem("mail_l")) && ArrayFesta[i+19]=="paga"){
       temp++;
       console.log(temp);
-      $("#Table_Festas_Paga").show();
+      $("#Table_f_paga").show();
       //lista festa
       console.log("show");
       //var ArrayFesta = JSON.parse(localStorage.getItem("festa"));
@@ -135,7 +111,7 @@ function listarpPago(){ ///buged não lista a tabela e aparece na inspeção do 
             if(ArrayFesta[i+19]=="paga" )
             {
               console.log("entra");
-                $("#tbody_Lista_Paga").append(`
+                $("#tbody_f_paga").append(`
               <tr id="Tr_Lista"><br />
               <th scope="row">${contadorRow}</th><br />
               <td id="Nome_Lista">${ArrayFesta[i + 1]}</td><br />
@@ -147,6 +123,7 @@ function listarpPago(){ ///buged não lista a tabela e aparece na inspeção do 
               <td id="Tema_Lista">${ArrayFesta[i + 7]}</td><br />
               <td id="Espaço_Lista">${ArrayFesta[i + 8]}</td><br />
               <td id="Ser_Lista"><ul id="ll${contadorRow}"></ul></td><br />
+              <td id="orcamento">${ArrayFesta[i + 20]}</td><br />
               <br /><td id="Orcamento_Lista">`);
                  
                   if (ArrayFesta[i + 9] != "") { $(`#ll${contadorRow}`).append("<li>Pintor Facial</li>"); }

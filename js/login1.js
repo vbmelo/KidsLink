@@ -254,5 +254,9 @@ function confirma2(){
 
 
 }
+function update(){
 
+    document.getElementById("change").innerHTML = JSON.parse(localStorage.getItem("mail_l"));
+
+}
 

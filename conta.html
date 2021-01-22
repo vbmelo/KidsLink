@@ -13,7 +13,7 @@
 </head>
 
 
-<body onload="update()">
+<body onload="update(), listar_pendente(), listarpPago()">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,1);">
         <div class="container-fluid">
@@ -75,101 +75,73 @@
             <h1 style="font-size: 100px"id="change" onload="">Organizador</h1>
         </div>
     </div>
-    <!--Conteudo-->
-    <div class="tab">
-        <button class="tablinks" onclick="display(event,'fp'), listar()" id="defaultOpen">Festas Pendentes</button>
-        <button class="tablinks" onclick="display(event, 'fc'), listarpPago()">Festas compradas</button>
-        <button class="tablinks" onclick="display(event, 'sc'), listarServicos()">Serviços contratados</button>
-      </div>
-      
-      <!-- Tab content -->
-    <div id="fp" class="tabcontent">
-        <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-            <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
-        </div>
-        <div class="container">
-            <div class="row image-grid">
-        </div>
-        <table class="table" id="Table_Festas_Pendestes" style="display: none;">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Morada</th>
-                <th scope="col">Data</th>
-                <th scope="col">hora inicio</th>
-                <th scope="col">Hora fim</th>
-                <th scope="col">Pessoas</th>
-                <th scope="col">Tema</th>
-                <th scope="col">Espaço</th>
-                <th scope="col">Serviços</th>
-                </tr>
-            </thead>
-            <tbody id="tbody_Lista">
-            </tbody>
-        </table>
-    </div>
-
-     <!-- 2 Tab content -->
-     <div id="fc" class="tabcontent">
-        <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-            <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
-        </div>
-        <div class="container">
-            <div class="row image-grid">
-        </div>
+     <!--Conteudo-->
+     <div class="container" > 
        
-        <table class="table" id="Table_Festas_Paga" style="display: none;">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Morada</th>
-                <th scope="col">Data</th>
-                <th scope="col">hora inicio</th>
-                <th scope="col">Hora fim</th>
-                <th scope="col">Pessoas</th>
-                <th scope="col">Tema</th>
-                <th scope="col">Espaço</th>
-                <th scope="col">Serviços</th>
-                <th scope="col">Orçamento</th>
-                </tr>
-            </thead>
-            <tbody id="tbody_Lista_Paga">
-            </tbody>
-        </table>
-    </div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" >
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#pendente" >Festas por pagar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#f_paga">Festas pagas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#parceiros">Serviços comprados</a>
+          </li>
+        </ul>
+      
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="pendente" class="container tab-pane active" ><br>
+            <table class="table" id="Table_Festas_Pendestes" style="display: none;">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Morada</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">hora inicio</th>
+                    <th scope="col">Hora fim</th>
+                    <th scope="col">Pessoas</th>
+                    <th scope="col">Tema</th>
+                    <th scope="col">Espaço</th>
+                    <th scope="col">Serviços</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_Lista">
+                </tbody>
+            </table>
+      
+          </div>
+          <div id="f_paga" class="container tab-pane fade" ><br>
+            
+              <table class="table" id="Table_f_paga" style="display: none;">
+                  <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Morada</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">hora inicio</th>
+                        <th scope="col">Hora fim</th>
+                        <th scope="col">Pessoas</th>
+                        <th scope="col">Tema</th>
+                        <th scope="col">Espaço</th>
+                        <th scope="col">Serviços</th>
+                        <th scope="col">Valor</th>
+                      </tr>
+                  </thead>
+                  <tbody id="tbody_f_paga">
+                  </tbody>
+              </table>
+      
+      
+      
+          </div>
+          
+      </div>
     
-
-     <!-- Tab content -->
-     <div id="sc" class="tabcontent">
-        <div class="container" style="text-align: center; margin-top: 50px; margin-bottom: 0px">
-            <p style="font-size:18px; font-style:italic;margin-bottom: 50px"></p>
-        </div>
-        <div class="container">
-            <div class="row image-grid">
-        </div>
-        <p>ola</p>
-        <table class="table" id="Table_Festas_Servicos" style="display: none;">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Morada</th>
-                <th scope="col">Data</th>
-                <th scope="col">hora inicio</th>
-                <th scope="col">Hora fim</th>
-                <th scope="col">Pessoas</th>
-                <th scope="col">Tema</th>
-                <th scope="col">Espaço</th>
-                <th scope="col">Serviços</th>
-                <th scope="col">Orçamento</th>
-                </tr>
-            </thead>
-            <tbody id="tbody_Lista_Servicos">
-            </tbody>
-        </table>
-    </div>
 
 
      <!-- Modal -->
