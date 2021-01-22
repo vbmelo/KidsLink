@@ -4,7 +4,7 @@ if(localStorage.getItem("ArrayDuvidas")==null){
 
 }
 
-
+console.log("entrei");
 
 function guardar(){
 
@@ -39,8 +39,10 @@ function guardar(){
     window.location = "duvidas.html"; // Redireciona 
   
 }
-var contadorRow = 0;
+
 function listarDuvidas() {
+    var contadorRow = 0;
+    console.log("entrei2");
     $("#Table_Duvidas").show();
 
     var ArrayDuvidas =JSON.parse(localStorage.getItem("ArrayDuvidas"));
@@ -51,7 +53,7 @@ function listarDuvidas() {
         
         $.each(ArrayDuvidas, function(){
             if (i  >= ArrayDuvidas.length) {
-                console.log("brakpoint??");
+                console.log(ArrayDuvidas.length);
                 return;
             }
             $("#tbody_Lista").append(`
@@ -63,8 +65,6 @@ function listarDuvidas() {
             </tr>
             `);
             contadorRow +=1;
-            console.log('contador==' + contadorRow);
-            console.log(ArrayDuvidas);
             i += 3;
             
         });
@@ -74,18 +74,4 @@ function listarDuvidas() {
    // }
 } 
 
- ///isto é o codigo para aceder a informação, 3 campos são uma sugestão, 
-    // for (var i = 0; i < ArrayDuvidas.length; i=i+3) {
-        
-    //     console.log("mail");
-    //     console.log(ArrayDuvidas[i]);
-    //     $("#Mail_Lista").append(ArrayDuvidas[i+1]);
-        
 
-    //     console.log("nome");
-    //     console.log(ArrayDuvidas[i+1]);
-    //     $("#Nome_Lista").append(ArrayDuvidas[i+1]);
-
-    //     console.log("texto");
-    //     console.log(ArrayDuvidas[i+2]);
-    //   } 
