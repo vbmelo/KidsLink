@@ -139,14 +139,14 @@ function register(){
         passwordArray.push(password);
         localStorage.setItem("mail",JSON.stringify(emailArray));
         localStorage.setItem("pass",JSON.stringify(passwordArray));
-        alert(email + "  Obrigado por se registar \nTente fazer login agora");
+        
 
         document.getElementById("re").value ="";
         document.getElementById("rp").value="";
         document.getElementById("rrp").value="";
     }
     else{
-        alert(email + " Já se encontra registado.");
+        
         return ;
     }
 }
@@ -190,19 +190,19 @@ function login(){
             alert("Email necessario.");
             return;
         }
-        alert("Email não existe.");
+        
         return;
     }
     else if(passwordArray[i] != password){
         if (password == ""){
-            alert("Password necessario.");
+            
             return ;
         }
-        alert("Password não é igual.");
+        
         return ;
     }
     else {
-        alert("Bem vindo "+email+".");
+        
         localStorage.setItem("mail_l",JSON.stringify(email));
         
 
