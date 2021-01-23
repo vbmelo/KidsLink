@@ -83,7 +83,7 @@ function pagar(){
     
 
    window.location="index.html";
-   alert("Obrigado por escolher a KidsLink!")
+   
 
    
 

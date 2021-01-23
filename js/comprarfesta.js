@@ -118,6 +118,7 @@ function guardar() {
 
     //array dos 0-21
     localStorage.setItem("festa", JSON.stringify(festa));
+    
     window.location = "index.html"; // Redireciona
 }
 
@@ -184,7 +185,10 @@ function enviarOrcamento(id) {
     if(festa[i]==id_festa){
       festa[i+19]="com orcamento"; 
       festa[i+20]=orcamento;
-   
+      console.log("update?");
+      console.log(festa);
+      localStorage.setItem("festa_orcamentada",JSON.stringify(festa));
+      localStorage.setItem("festa",JSON.stringify(festa));
       break;
     }
     
